@@ -1,0 +1,17 @@
+.btn-left {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50px;
+  left: 15px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: 10px;
+  z-index: 999;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}/*# sourceMappingURL=styles.css.map */

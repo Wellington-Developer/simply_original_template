@@ -1,0 +1,21 @@
+.container-info__action {
+  z-index: 99999999999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: black;
+  color: var(--black-color-o1);
+}
+
+@media screen and (max-width: 640px) {
+  .container-info__action {
+    padding: 6px;
+    font-size: 12px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,23 @@
+.container-input__search {
+  width: 100%;
+  position: fixed;
+  top: 220px;
+  right: 0px;
+  left: 0px;
+  z-index: 999999;
+}
+.container-input__search input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+}
+.container-input__search textarea:focus, .container-input__search input:focus {
+  border: none;
+  outline: none;
+}
+.container-input__search .container-product__search {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}/*# sourceMappingURL=styles.css.map */

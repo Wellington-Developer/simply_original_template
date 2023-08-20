@@ -1,0 +1,22 @@
+.left-side__input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.left-side__input input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid var(--black-color-o3);
+  transition: all 0.3s ease-in-out;
+  color: var(--black-color-o3);
+  font-size: 1rem;
+}
+.left-side__input input:hover {
+  border: 1px solid var(--black-color-o5);
+}
+.left-side__input .address-side__input {
+  display: flex;
+  gap: 12px;
+}/*# sourceMappingURL=styles.css.map */

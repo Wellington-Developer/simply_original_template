@@ -1,0 +1,16 @@
+.popup {
+  position: fixed;
+  padding: 12px;
+  border-radius: 5px;
+  top: 160px;
+  right: 24px;
+  background-color: var(--primary-color-o2);
+  color: red;
+  font-size: 18px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+  z-index: 9999999999;
+}

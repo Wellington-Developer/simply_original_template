@@ -1,0 +1,35 @@
+.fechar {
+  display: none;
+}
+
+.section-popup {
+  padding: 24px;
+  border-radius: 5px;
+  background: var(--black-color-o1);
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  right: 30px;
+  max-width: 1200px;
+  z-index: 999999999999;
+  display: flex;
+}
+.section-popup h1 {
+  font-size: 1rem;
+  font-weight: 500;
+  max-width: 80%;
+}
+.section-popup button {
+  padding: 12px 24px;
+  border-radius: 5px;
+  color: var(--primary-color-o5);
+  background: var(--black-color-o2);
+  border: none;
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: all 0.6s ease-in-out;
+}
+.section-popup button:hover {
+  color: var(--black-color-o1);
+  background: var(--primary-color-o5);
+}/*# sourceMappingURL=styles.css.map */

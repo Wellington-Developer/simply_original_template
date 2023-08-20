@@ -1,0 +1,212 @@
+.testimonial-container {
+  max-width: 1262px;
+  padding: 0 20px;
+
+  .info-side {
+    h3 {
+      color: var(--black-color-o6);
+      font-size: 1rem;
+      text-transform: uppercase;
+      padding-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      line-height: 120%;
+      color: var(--color-c4);
+      position: relative;
+      padding-bottom: 90px;
+    }
+  }
+  
+  .testimonial-side {
+    display: grid;
+    grid-template-columns: minmax(190px, 290px) 1fr;
+    gap: 50px;
+
+    .left-side {
+      grid-column: 1/2;
+      
+      .people-testimonial {
+        transition: all 0.6s ease-in-out;
+
+        :hover {
+          background: var(--black-color-o2);
+        }
+
+        .people-info-container {
+          display: flex;
+          align-items: center;
+          padding: 24px;
+          justify-content: center;
+          gap: 16px;
+          margin-bottom: 4px;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: all 0.3s ease-in;
+
+          .people-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            border-radius: 100%;
+            background: var(--black-color-o2);
+          }
+
+          h1 {
+            font-size: 18px;
+            color: var(--black-color-o6);
+            font-weight: 500;
+            padding-bottom: 4px;
+          }
+  
+          p {
+            font-size: 1rem;
+            color: var(--black-color-o4);
+            font-weight: 500;
+          }
+        }
+      }
+    }
+
+    .right-side {
+      grid-column: 2/4;
+      padding: 50px;
+      background: var(--black-color-o2);
+      border-radius: 5px;
+
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      .mobile-name {
+        display: none;
+      }
+
+      .comment-testimonial {
+
+        .quote {
+          position: absolute;
+          right: 24px;
+          top: 40px;
+        }
+        
+        h1 {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 18px;
+          padding-bottom: 60px;
+          font-weight: normal;
+
+          img {
+            max-width: 24px;
+          }
+        }
+
+        p {
+          font-size: 1.25rem;
+          line-height: 1.75rem;
+          color: var(--color-c3);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .testimonial-container {
+      padding: 0 10px;
+
+    .info-side {
+      h3 {
+        text-align: center;
+        color: var(--color-p2);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        padding-bottom: 12px;
+      }
+  
+      h1 {
+        font-size: 1.5rem;
+        line-height: 120%;
+        color: var(--color-c4);
+        position: relative;
+        padding-bottom: 60px;
+        text-align: center;
+      }
+    }
+
+    .testimonial-side {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      
+      .left-side {
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        display: flex;
+
+        .people-testimonial {
+          display: flex;
+          gap: 20px;
+
+          .people-info-container {
+            display: flex;
+            margin-bottom: 30px;
+            padding: 0;
+            gap: 0;
+            justify-content: center;
+
+            h1 {
+              display: none;
+            }
+    
+            p {
+              display: none;
+            }
+          }
+        }
+      }
+
+      .right-side {
+        padding: 20px;
+
+        .mobile-name {
+          display: inline-block;
+          padding-bottom: 12px;
+          font-weight: 500;
+        }
+        
+        .comment-testimonial {
+          p {
+            font-size: 1.5rem;
+            line-height: 1.75rem;
+          }
+
+          .quote {
+            top: 50px;
+            right: 20px;
+            max-width: 40px;
+          }
+
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .testimonial-container {
+    .right-side {
+      .comment-testimonial {
+        p {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}

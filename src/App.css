@@ -1,0 +1,57 @@
+/*
+    Reset Global Fonts
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Red+Hat+Display:wght@300;400;500;600;700;800;900&display=swap');
+
+
+/*
+    Import Color Var
+*/
+@import './styles/colors.css';
+
+/*
+    Reset Global Style
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul, li, a {
+  text-decoration: none;
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6, a, span, button {
+  font-family: 'Poppins';
+}
+
+* {
+  font-family: 'Inter';
+}
+
+svg {
+  width: 24px; 
+  height: 24px;
+}
+
+svg:hover {
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*
+    Reset Container
+*/
+.container {
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
