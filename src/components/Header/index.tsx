@@ -66,16 +66,11 @@ function useMenuAnimation(isOpen: boolean) {
 
 export const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [modalIsOpen, setModalIsOpen] = useState(false);
     const [ inputIsOpen, setInputIsOpen ] = useState(false);
     const { cart } = useContext(GlobalContext);
 
 
     const scope = useMenuAnimation(isOpen);
-
-    const handleModalIsOpen = () => {
-      setModalIsOpen(!modalIsOpen);
-    }
 
     const handleInputIsOpen = () => {
       setInputIsOpen(!inputIsOpen);
