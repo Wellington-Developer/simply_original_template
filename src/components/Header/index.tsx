@@ -101,7 +101,12 @@ export const Header = () => {
                 }}
             >
                 <Link to="/">
-                  <h1>Simply</h1>
+                  {
+                    inputIsOpen && <InputSearch />
+                  }
+                  {
+                    !inputIsOpen && <h1 className="name_interprise">Simply</h1>
+                  }
                 </Link>
                 </motion.div>
             </div>
@@ -124,9 +129,6 @@ export const Header = () => {
               </div>
             </div>
         </div>
-        {
-          inputIsOpen && <InputSearch />
-        }
         </>
     )
 }

@@ -30,11 +30,21 @@
 }
 .principal-container__header .mid-side__header {
   width: 100%;
-  display: flex;
   align-items: center;
   justify-content: center;
+  height: 80px;
+  max-width: 600px;
 }
-.principal-container__header .mid-side__header h1 {
+.principal-container__header .mid-side__header input {
+  align-self: center;
+  display: block;
+  width: 100%;
+  border-bottom: 0;
+  border: 1px solid black;
+  margin-top: 18px;
+}
+.principal-container__header .mid-side__header .name_interprise {
+  margin: 0 auto;
   background: var(--black-color-o2);
   display: flex;
   align-items: center;

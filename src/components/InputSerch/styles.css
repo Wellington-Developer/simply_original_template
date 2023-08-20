@@ -1,15 +1,13 @@
 .container-input__search {
   width: 100%;
-  position: fixed;
-  top: 220px;
-  right: 0px;
-  left: 0px;
   z-index: 999999;
 }
 .container-input__search input {
   width: 100%;
   padding: 12px;
   border-radius: 5px;
+  border: 1px solid var(--black-color-o3);
+  max-width: 600px;
 }
 .container-input__search textarea:focus, .container-input__search input:focus {
   border: none;
@@ -20,4 +18,8 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  position: fixed;
+  top: 80px;
+  max-width: 600px;
+  width: 100%;
 }/*# sourceMappingURL=styles.css.map */
