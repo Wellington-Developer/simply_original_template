@@ -6,7 +6,6 @@ import './styles.css';
 import { BiCartAdd } from 'react-icons/bi';
 import { GlobalContext } from '../context/GlobalContext';
 
-import { Link } from 'react-router-dom';
 import { Popup } from '../Popup';
 
 type IProduct = {
@@ -16,15 +15,9 @@ type IProduct = {
   id?: number
 }
 
-/*
-                
-
-                <div >
-          </div>
-
- */
-
 export const Product = ({ title, price, image, id }: IProduct) => {
+
+  console.log(image)
 
   const { setProductToCart, showPopup } = useContext(GlobalContext);
 

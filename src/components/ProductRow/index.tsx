@@ -14,7 +14,6 @@ export const ProductRow = ({ category }) => {
   const url = `https://fakestoreapi.com/products/category/${category}`;
   const [productsPerCategory, setProductsPerCategory] = useState([]);
   const refferenceProductContainer = useRef<any>(0);
-  const [width, setWidth] = useState<any>()
   
   const handleRightProduct = () => {
     refferenceProductContainer.current.scrollLeft += 324

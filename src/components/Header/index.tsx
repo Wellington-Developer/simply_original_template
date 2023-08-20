@@ -18,7 +18,6 @@ import { Cart } from '../Cart';
 import { Link } from 'react-router-dom';
 import { InputSearch } from '../InputSerch';
 import { GlobalContext } from '../context/GlobalContext';
-import { CallToActionTop } from './utils/CallToActionTop';
 
 
 function useMenuAnimation(isOpen: boolean) {
