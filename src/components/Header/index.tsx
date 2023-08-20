@@ -14,7 +14,6 @@ import { useAnimate, stagger } from "framer-motion";
 // React Components
 import { Menu } from './utils/Menu/Menu';
 import { MenuToggle } from './utils/MenuToggle';
-import { Cart } from '../Cart';
 import { Link } from 'react-router-dom';
 import { InputSearch } from '../InputSerch';
 import { GlobalContext } from '../context/GlobalContext';
@@ -121,16 +120,15 @@ export const Header = () => {
                     <BiSearchAlt2 onClick={ handleInputIsOpen } />
                   )
                 }
-                <BiCartAlt onClick={ handleModalIsOpen }/>
+                <Link to="/cart">
+                  <BiCartAlt />
+                </Link>
                 <div className="contador">
                   {cart.length}
                 </div>
               </div>
             </div>
         </div>
-        {
-          modalIsOpen && <Cart modal={ handleModalIsOpen }/>
-        }
         {
           inputIsOpen && <InputSearch />
         }

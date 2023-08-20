@@ -1,25 +1,24 @@
 .container-products__row {
   position: relative;
+  margin-bottom: 60px;
 }
 .container-products__row .button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
-  width: 100%;
+  gap: 12px;
   position: absolute;
-  top: 0px;
-  bottom: 0;
+  top: -80px;
   right: 0;
-  left: 0;
   padding: 16px;
+  z-index: 2;
 }
 .container-products__row .button button {
   padding: 12px;
   border-radius: 5px;
   border: none;
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
@@ -27,7 +26,7 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 .container-products__row .button button svg {
-  color: var(--black-color-o1);
+  color: var(--black-color-o6);
 }
 .container-products__row .product-container__row {
   width: 100%;
@@ -39,4 +38,11 @@
 .container-products__row .product-container__row .product-content__row {
   display: flex;
   gap: 24px;
+}
+
+@media screen and (max-width: 530px) {
+  .container-products__row .button {
+    left: 0;
+    top: 150px;
+  }
 }/*# sourceMappingURL=styles.css.map */

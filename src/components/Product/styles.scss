@@ -5,6 +5,7 @@
   flex-shrink: 0;
   border-radius: 5px;
   cursor: pointer;
+  z-index: 1;
 
   .content-single__product {
     padding: 8px;
@@ -40,6 +41,7 @@
 
     .button-single__product {
       width: 100%;
+
       button {
         display: flex;
         align-items: center;
@@ -70,6 +72,6 @@
 
 @media screen and (max-width: 800px) {
   .container-single__product {
-    flex-shrink: 1;
+    max-width: 280px;
   }
 }

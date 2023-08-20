@@ -1,113 +1,51 @@
-.section-side__cart {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  height: 100vh;
-  background: white;
-  z-index: 9999999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.section-side__cart .product-discount__cart {
-  position: absolute;
-  margin-top: 60px;
-}
-.section-side__cart .product-discount__cart input {
-  border: 1px solid #e3e3e3;
-  width: 100%;
-  padding: 12px;
-  border-radius: 5px;
-}
-.section-side__cart .content-side__cart {
-  max-width: 1162px;
-  width: 100%;
-  display: flex;
-  gap: 48px;
-  position: relative;
-}
-.section-side__cart .content-side__cart .content-close__cart {
-  position: absolute;
-  top: 0px;
-  right: 0;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  cursor: pointer;
-  padding: 8px 12px;
-  transition: all 0.6s ease-in-out;
-  border-radius: 5px;
-}
-.section-side__cart .content-side__cart .content-close__cart h1 {
-  font-size: 1.2rem;
-  font-weight: 500;
-}
-.section-side__cart .content-side__cart .content-close__cart svg {
-  transition: all 0.6s ease-in-out;
-  width: 28px;
-  height: 28px;
-}
-.section-side__cart .content-side__cart .content-close__cart:hover {
-  background: var(--primary-color-o1);
-}
-.section-side__cart .content-side__cart .content-close__cart:hover svg {
-  color: var(--primary-color-o5);
-}
-.section-side__cart .content-side__cart .left-side__cart, .section-side__cart .content-side__cart .right-side__cart {
-  flex: 1;
-}
-.section-side__cart .content-side__cart .left-side__cart .form {
-  padding-bottom: 48px;
-}
-.section-side__cart .content-side__cart .left-side__cart .payment-method__cart h3 {
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--black-color-o4);
-  padding-bottom: 12px;
-}
-.section-side__cart .content-side__cart .left-side__cart .logo {
-  padding-bottom: 48px;
-}
-.section-side__cart .content-side__cart .left-side__cart .info-contact__cart h3 {
-  color: var(--black-color-o4);
-  font-size: 1rem;
-  font-weight: 500;
-  padding-bottom: 12px;
-}
-.section-side__cart .content-side__cart .right-side__cart .quicly-resume__cart {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.section-side__cart .content-side__cart .right-side__cart .quicly-resume__cart h4 {
-  color: var(--black-color-o5);
-}
-.section-side__cart .content-side__cart .right-side__cart .quicly-resume__cart h3 {
-  color: var(--black-color-o6);
-}
-.section-side__cart .content-side__cart .right-side__cart .product-container__cart h3 {
-  font-size: 1.5rem;
-  padding: 4px 0;
-  padding-bottom: 48px;
+.home {
+  color: black;
 }
 
-@media screen and (max-width: 768px) {
-  .section-side__cart {
-    position: fixed;
-    top: 120px;
-    height: 100%;
-    z-index: 99999999;
-  }
-  .section-side__cart .content-side__cart {
-    border: 1px solid red;
-    padding: 0 20px;
+.container-section__cart {
+  display: flex;
+  gap: 24px;
+  padding: 20px;
+  padding-top: 200px;
+  background-color: white;
+}
+.container-section__cart .left-side__cart, .container-section__cart .right-side__cart {
+  width: 100%;
+  padding: 30px 0;
+}
+.container-section__cart .left-side__cart h2 {
+  padding-bottom: 24px;
+}
+.container-section__cart .left-side__cart .product-side__cart {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.container-section__cart .right-side__cart h2 {
+  margin-bottom: 30px;
+}
+.container-section__cart .right-side__cart .quicly-resume__cart {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.container-section__cart .right-side__cart .quicly-resume__cart h4 {
+  opacity: 0.6;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.container-section__cart .right-side__cart .button {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media screen and (max-width: 800px) {
+  .container-section__cart {
     flex-direction: column;
-    overflow: auto;
-    width: 100%;
   }
-  .right-side__cart .quicly-resume__cart {
-    width: 100%;
+  .container-section__cart .left-side__cart h1 {
+    padding-bottom: 24px;
   }
 }/*# sourceMappingURL=styles.css.map */

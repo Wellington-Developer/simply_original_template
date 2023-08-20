@@ -74,8 +74,9 @@
         display: flex;
         gap: 12px;
 
-        svg {
+        a svg {
             transition: all 0.3s ease-in-out;
+            color: var(--black-color-o6);
         }
         
         svg:hover {

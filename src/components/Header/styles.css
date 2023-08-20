@@ -65,8 +65,9 @@
   display: flex;
   gap: 12px;
 }
-.principal-container__header .right-icon__header svg {
+.principal-container__header .right-icon__header a svg {
   transition: all 0.3s ease-in-out;
+  color: var(--black-color-o6);
 }
 .principal-container__header .right-icon__header svg:hover {
   color: var(--primary-color-o5);

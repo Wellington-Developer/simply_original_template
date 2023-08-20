@@ -17,7 +17,7 @@ export const Footer = () => {
     const global = useContext(GlobalContext)
 
     const handleFooterMenu = () => {
-        if(refferenceWidth.current.offsetWidth <= 600) {
+        if (refferenceWidth.current.offsetWidth <= 600) {
             setShowLinks(false)
             setShowLinks2(false)
             setShowLinks3(false)
@@ -30,10 +30,11 @@ export const Footer = () => {
         }
     }
 
-    const [ showLinks, setShowLinks ] = useState(false)
-    const [ showLinks2, setShowLinks2 ] = useState(false)
-    const [ showLinks3, setShowLinks3 ] = useState(false)
-    const [ showLinks4, setShowLinks4 ] = useState(false)
+    const [showLinks, setShowLinks] = useState(false)
+    const [showLinks2, setShowLinks2] = useState(false)
+    const [showLinks3, setShowLinks3] = useState(false)
+    const [showLinks4, setShowLinks4] = useState(false)
+    const [ deskTopLinks, setDesktopLinks ] = useState(true)
 
     const toggleLinks = () => {
         setShowLinks(!showLinks)
@@ -51,21 +52,34 @@ export const Footer = () => {
         setShowLinks4(!showLinks4)
     }
 
+    const removeIconInDesktopScreen = () => {
+        if(refferenceWidth.current.offsetWidth >= 600) {
+            setDesktopLinks(true)
+        } else {
+            setDesktopLinks(false)
+        }
+    }
+
     useEffect(() => {
         handleFooterMenu()
-
+        removeIconInDesktopScreen()
     }, [])
+
 
     return (
         <div className="container-footer" ref={refferenceWidth}>
             <div className="submenu">
-                <div className="box-footer" onClick={toggleLinks}>
+                <div className="box-footer" onClick={!deskTopLinks && toggleLinks}>
                     <div className="top-footer">
                         <h1 >Institucional</h1>
                         {
-                            showLinks ?
-                            (<IoIosArrowUp />) :
-                            (<IoIosArrowDown />)
+                            !deskTopLinks && <div>
+                            {
+                                showLinks ?
+                                    (<IoIosArrowUp />) :
+                                    (<IoIosArrowDown />)
+                            }
+                        </div>
                         }
                     </div>
                     {
@@ -80,13 +94,17 @@ export const Footer = () => {
                         </ul>
                     }
                 </div>
-                <div className="box-footer" onClick={toggleLinks2}>
+                <div className="box-footer" onClick={!deskTopLinks && toggleLinks2}>
                     <div className="top-footer">
                         <h1 >Categorias</h1>
                         {
-                            showLinks2 ?
-                            (<IoIosArrowUp />) :
-                            (<IoIosArrowDown />)
+                            !deskTopLinks && <div>
+                            {
+                                showLinks2 ?
+                                    (<IoIosArrowUp />) :
+                                    (<IoIosArrowDown />)
+                            }
+                        </div>
                         }
                     </div>
                     {
@@ -104,12 +122,16 @@ export const Footer = () => {
                     }
                 </div>
                 <div className="box-footer">
-                    <div className="top-footer">
-                        <h1 onClick={toggleLinks3}>Contatos</h1>
+                    <div className="top-footer" onClick={!deskTopLinks && toggleLinks3}>
+                        <h1>Contatos</h1>
                         {
-                            showLinks3 ?
-                            (<IoIosArrowUp />) :
-                            (<IoIosArrowDown />)
+                            !deskTopLinks && <div>
+                            {
+                                showLinks3 ?
+                                    (<IoIosArrowUp />) :
+                                    (<IoIosArrowDown />)
+                            }
+                        </div>
                         }
                     </div>
                     {
@@ -122,12 +144,16 @@ export const Footer = () => {
                     }
                 </div>
                 <div className="box-footer midia-social">
-                <div className="top-footer">
-                        <h1 onClick={toggleLinks4}>Redes Sociais</h1>
+                    <div className="top-footer" onClick={!deskTopLinks && toggleLinks4}>
+                        <h1 >Redes Sociais</h1>
                         {
-                            showLinks4 ?
-                            (<IoIosArrowUp />) :
-                            (<IoIosArrowDown />)
+                            !deskTopLinks && <div>
+                            {
+                                showLinks4 ?
+                                    (<IoIosArrowUp />) :
+                                    (<IoIosArrowDown />)
+                            }
+                        </div>
                         }
                     </div>
                     {
@@ -140,21 +166,16 @@ export const Footer = () => {
                 </div>
             </div>
             <div className="logotipo">
-                    <img src={ logoSimply } alt="logotipo simply - todos os direitos reservados" />
-            </div>
-
-            <div className="info-interprise">
-                <div>
-                    {
-                        cnpjData.cnpj ?
+                {
+                    cnpjData.cnpj ?
                         (
                             <div>{cnpjData.cnpj}</div>
                         ) :
                         (
                             <div>Todos os direitos reservados.</div>
                         )
-                    }
-                </div>
+                }
+                <img src={logoSimply} alt="logotipo simply - todos os direitos reservados" />
             </div>
         </div>
     )

@@ -1,0 +1,32 @@
+.container-info__client {
+  height: 100%;
+  display: flex;
+  overflow-x: scroll;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  height: 100vh;
+}
+.container-info__client h1, .container-info__client p {
+  text-align: center;
+}
+.container-info__client h1 {
+  padding-bottom: 12px;
+  max-width: 400px;
+}
+.container-info__client p {
+  max-width: 400px;
+  opacity: 0.8;
+  margin-bottom: 24px;
+}
+.container-info__client .button {
+  display: flex;
+  gap: 12px;
+}
+.container-info__client .introduction-info__client, .container-info__client .step-one__client, .container-info__client .step-two__client {
+  width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}/*# sourceMappingURL=styles.css.map */

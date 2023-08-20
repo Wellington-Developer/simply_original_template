@@ -5,6 +5,7 @@
   flex-shrink: 0;
   border-radius: 5px;
   cursor: pointer;
+  z-index: 1;
 }
 .container-single__product .content-single__product {
   padding: 8px;
@@ -63,6 +64,6 @@
 
 @media screen and (max-width: 800px) {
   .container-single__product {
-    flex-shrink: 1;
+    max-width: 280px;
   }
 }/*# sourceMappingURL=styles.css.map */

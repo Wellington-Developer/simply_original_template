@@ -6,6 +6,10 @@ import './styles.css';
 import { BiCartAdd } from 'react-icons/bi';
 import { GlobalContext } from '../context/GlobalContext';
 
+// React-Router-Dom
+import { Link } from 'react-router-dom';
+
+// React Components
 import { Popup } from '../Popup';
 
 type IProduct = {
@@ -28,7 +32,9 @@ export const Product = ({ title, price, image, id }: IProduct) => {
     <div className="container-single__product" >
       <Popup message="Produto adicionado ao carrinho!" show={showPopup} />
       <div className="content-single__product">
-        <div className="image-single__product" style={{ backgroundImage: `url("https://loja.simply.app.br/arquivos_produtos/159/71466/c4e03ac867bafd38f63d63bd37c3fad220230408104621.jpeg")` }}></div>
+        <Link to={`/product/${id}`}>
+          <div className="image-single__product" style={{ backgroundImage: `url("https://loja.simply.app.br/arquivos_produtos/159/71466/c4e03ac867bafd38f63d63bd37c3fad220230408104621.jpeg")` }}></div>
+        </Link>
 
         <div className="containerinfo-single__product">
           <div className="info-single__product">
@@ -42,7 +48,6 @@ export const Product = ({ title, price, image, id }: IProduct) => {
             </button>
           </div>
         </div>
-
       </div>
     </div>
   )

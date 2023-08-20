@@ -5,7 +5,12 @@
   bottom: 0;
   height: 100vh;
   width: 400px;
-  background: var(--primary-color-o5);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding-top: 100px;
   transform: translateX(-100%);
   will-change: transform;
@@ -19,7 +24,7 @@
   padding-top: 48px;
 }
 .menu li {
-  color: var(--black-color-o1);
+  color: var(--black-color-o6);
   display: block;
   transform-origin: -20px 50%;
   font-weight: bold;

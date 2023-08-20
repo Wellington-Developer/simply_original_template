@@ -73,8 +73,6 @@ export const GlobalStorage = ({ children }) => {
   }
 
 
-
-
   useEffect(() => {
     getAllProducts()
     getAllCategories()
