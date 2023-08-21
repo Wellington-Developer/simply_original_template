@@ -42,7 +42,17 @@
 
 @media screen and (max-width: 530px) {
   .container-products__row .button {
-    left: 0;
-    top: 150px;
+    display: none;
+  }
+  .container-products__row .product-container__row {
+    width: 100%;
+    margin-bottom: 24px;
+    cursor: grab;
+    overflow: auto;
+    scroll-behavior: smooth;
+  }
+  .container-products__row .product-container__row .product-content__row {
+    display: flex;
+    gap: 24px;
   }
 }/*# sourceMappingURL=styles.css.map */

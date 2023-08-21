@@ -18,6 +18,7 @@ import { AddNewProduct } from './components/AddNewProduct';
 import { WhatsAppIcon } from './components/WhatsAppIcon';
 import { PopupTermsAccept } from './components/PopupTermosAccept';
 import { Cart } from './components/Cart';
+import { SearchPage } from './components/SearchPage';
 
 
 function App() {
@@ -25,11 +26,11 @@ function App() {
   return (
     <GlobalStorage>
       <BrowserRouter>
-          <div className="container">
           <WhatsAppIcon />
           <PopupTermsAccept />
             <Routes>
               <Route path="/" element={ <Home /> } />
+              <Route path="/search" element={ <SearchPage /> } />
               <Route path="/cart" element={<Cart />} />
               <Route path="/category/:id" element={ <CategoryProduct /> } />
               <Route path="/product/:id" element={ <ProductPage /> } />
@@ -37,7 +38,6 @@ function App() {
               <Route path="/politica-privacidade" element={ <PoliticaPrivacidade /> } />
               <Route path="/cadastrar-produto" element={ <AddNewProduct /> } />
             </Routes>
-          </div>
             <GoToTop />
       </BrowserRouter>
     </GlobalStorage>

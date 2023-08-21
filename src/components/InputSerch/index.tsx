@@ -1,4 +1,7 @@
 // Styles
+import { Link } from 'react-router-dom';
+import { Footer } from '../Footer';
+import { BiHomeAlt } from 'react-icons/bi';
 import { GlobalContext } from '../context/GlobalContext';
 import { ProductInput } from './ProductInput';
 import './styles.css';
@@ -20,25 +23,36 @@ export const InputSearch = () => {
 
 
   return (
-    <div className="container-input__search">
-      <div className="content-input__seach">
-        <form>
-          <input
-            type="text"
-            placeholder="Pesquisar produto"
-            onChange={ handleChange } 
-            value={ data }
-          />
-        </form>
-      </div>
+    <>
+        <div className="container-input__search container">
+          <Link to="/">
+            <h1><BiHomeAlt /> Voltar para Home</h1>
+          </Link>
+          <div className="content-input__seach">
+            <form>
+              <input
+                type="text"
+                placeholder="Pesquisar produto"
+                onChange={ handleChange } 
+                value={ data }
+              />
+            </form>
+          </div>
+          {
+            filteredProducts.length == 20 ?
+            (<h3>Faça uma pesquisa rápida!</h3> ) : 
+            (<h3>Produtos encontrados: {filteredProducts.length}</h3>)
+          }
 
-      <div className="container-product__search">
-        {
-          data && filteredProducts.map((item) => {
-            return <ProductInput title={item[0]} id={item[1]} image={item[2]} price={item[3]} />
-          })
-        }
-      </div>
-    </div>
+          <div className="container-product__search">
+            {
+              data && filteredProducts.map((item) => {
+                return <ProductInput title={item[0]} id={item[1]} image={item[2]} price={item[3]} />
+              })
+            }
+          </div>
+        </div>
+      <Footer />
+    </>
   )
 }

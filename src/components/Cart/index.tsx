@@ -38,7 +38,7 @@ export const Cart = () => {
   }, [cart])
 
   return (
-    <>
+    <div className="container">
         <Link to="/">
           <span className="home">← Voltar para home</span>
         </Link>
@@ -89,6 +89,6 @@ export const Cart = () => {
     ) : (
       <InfoClient />
     )}
-    </>
+    </div>
   )
 }

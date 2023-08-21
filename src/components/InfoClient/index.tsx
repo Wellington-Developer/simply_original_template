@@ -30,7 +30,7 @@ export const InfoClient = () => {
   }
 
   return (
-    <div className="container-info__client" ref={ refferenceScreen }>
+    <div className="container-info__client container" ref={ refferenceScreen }>
       <div className="introduction-info__client">
         <div className="box-shadow">
           <h1>Parece ser a sua primeira vez aqui.</h1>

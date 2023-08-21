@@ -2,7 +2,7 @@ import './index.css';
 
 export const Termos = () => {
   return (
-    <div>
+    <div className="container">
       <main>
         <div className="titulo-bg">
           <div className="titulo container">

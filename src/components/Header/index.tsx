@@ -5,7 +5,7 @@ import './styles.css';
 import { useState, useEffect, useContext } from "react";
 
 // React Icons
-import { BiCartAlt, BiSearchAlt2, BiX } from 'react-icons/bi';
+import { BiSearchAlt2, BiCartAlt } from 'react-icons/bi';
 
 // Framer Motion
 import { motion } from 'framer-motion';
@@ -112,14 +112,9 @@ export const Header = () => {
             </div>
             <div className="right-side__header">
               <div className="right-icon__header">
-                {
-                  inputIsOpen ?
-                  (
-                    <BiX onClick={ handleInputIsOpen } />
-                    ) : (
-                    <BiSearchAlt2 onClick={ handleInputIsOpen } />
-                  )
-                }
+                <Link to="/search">
+                  <BiSearchAlt2 onClick={ handleInputIsOpen } />
+                </Link>
                 <Link to="/cart">
                   <BiCartAlt />
                 </Link>

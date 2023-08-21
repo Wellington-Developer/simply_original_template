@@ -11,13 +11,15 @@ import { Footer } from '../Footer';
 
 export const Home = () => {
   return (
-    <div className="container-home">
-      <Header />
-      <Banner />
-      <Categories />
-      <ProductRowCategories />
-      <Frete />
+    <>
+      <div className="container-home container">
+        <Header />
+        <Banner />
+        <Categories />
+        <ProductRowCategories />
+        <Frete />
+      </div>
       <Footer />
-    </div>
+    </>
   )
 }
