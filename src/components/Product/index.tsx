@@ -3,7 +3,6 @@ import { useContext } from 'react';
 import './styles.css';
 
 // React Icons
-import { BiCartAdd } from 'react-icons/bi';
 import { GlobalContext } from '../context/GlobalContext';
 
 // React-Router-Dom
@@ -11,6 +10,9 @@ import { Link } from 'react-router-dom';
 
 // React Components
 import { Popup } from '../Popup';
+
+// Assets
+import CartIcon from '../../assets/cart.svg';
 
 type IProduct = {
   image: string,
@@ -23,7 +25,7 @@ export const Product = ({ title, price, image, id }: IProduct) => {
 
   console.log(image)
 
-  const { setProductToCart, showPopup } = useContext(GlobalContext);
+  const { showPopup } = useContext(GlobalContext);
 
   const options = { style: 'currency', currency: 'BRL' }
   const formatNumber = new Intl.NumberFormat('pt-BR', options)
@@ -39,13 +41,18 @@ export const Product = ({ title, price, image, id }: IProduct) => {
         <div className="containerinfo-single__product">
           <div className="info-single__product">
             <p>{title}</p>
-            <h1>{formatNumber.format(price)}</h1>
+            <div className="price">
+              <h1>{formatNumber.format(price)}</h1>
+              <span>R$ {formatNumber.format(price - 5)}</span>
+            </div>
           </div>
-          <div className="button-single__product" onClick={() => setProductToCart(id)}>
-            <button>
-              <BiCartAdd />
-              Adicionar
-            </button>
+          <div className="button-single__product" >
+            <Link to={`/product/${id}`}>
+              <button>
+                <img src={CartIcon} alt="cart"/>
+                Detalhes
+              </button>
+            </Link>
           </div>
         </div>
       </div>

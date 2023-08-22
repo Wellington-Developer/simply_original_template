@@ -24,6 +24,21 @@
 .midia-social ul {
     display: flex;
     gap: 12px;
+    align-items: center;
+}
+
+.midia-social a {
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.midia-social svg {
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
 }
 
 .midia-social ul svg:hover {

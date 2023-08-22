@@ -5,7 +5,10 @@ import './styles.css';
 import { useState, useEffect, useContext } from "react";
 
 // React Icons
-import { BiSearchAlt2, BiCartAlt } from 'react-icons/bi';
+import { BiSearchAlt2 } from 'react-icons/bi';
+
+// Assets
+import CartHeader from '../../assets/cart-header.svg';
 
 // Framer Motion
 import { motion } from 'framer-motion';
@@ -116,7 +119,7 @@ export const Header = () => {
                   <BiSearchAlt2 onClick={ handleInputIsOpen } />
                 </Link>
                 <Link to="/cart">
-                  <BiCartAlt />
+                  <img src={ CartHeader } />
                 </Link>
                 <div className="contador">
                   {cart.length}

@@ -2,7 +2,8 @@
 import { Link } from 'react-router-dom'
 import './styles.css'
 import { useState, useRef, useEffect, useContext } from 'react'
-import { FaFacebookF, FaInstagram } from 'react-icons/fa';
+import { FaInstagram } from 'react-icons/fa';
+import { BiLogoFacebook } from 'react-icons/bi'
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io'
 
 // Data
@@ -159,7 +160,7 @@ export const Footer = () => {
                     {
                         showLinks4 &&
                         <ul>
-                            <a href="www.google.com" target='blank'><FaFacebookF /></a>
+                            <a href="www.google.com" target='blank' id="face"><BiLogoFacebook /></a>
                             <a href="www.google.com" target='blank'><FaInstagram /></a>
                         </ul>
                     }

@@ -75,7 +75,13 @@
   display: flex;
   gap: 12px;
 }
+.principal-container__header .right-icon__header img {
+  max-width: 24px;
+  max-height: 24px;
+}
 .principal-container__header .right-icon__header a svg {
+  max-width: 24px;
+  max-height: 24px;
   transition: all 0.3s ease-in-out;
   color: var(--black-color-o6);
 }

@@ -19,6 +19,14 @@
   box-sizing: border-box;
 }
 
+select {
+  width: 100%;
+  border: 1px solid var(--black-color-o3);
+  padding: 4px;
+  border-radius: 5px;
+  outline: var(--black-color-o4);
+}
+
 input {
   width: 100%;
   padding: 12px;
