@@ -30,6 +30,7 @@ export const ProductPage = () => {
 
   const handleImageOnClick = () => {
     refferenceImage.current.scrollLeft += refferenceImage.current.offsetWidth + 24;
+    console.log(setContProduct)
   }
 
   return (
