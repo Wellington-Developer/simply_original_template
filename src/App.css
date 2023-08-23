@@ -19,12 +19,47 @@
   box-sizing: border-box;
 }
 
+:root {
+  -glass: rgba(255, 255, 255, 0.2);
+  -glass-icon: rgba(255, 255, 255, 0.3);
+  -gradient: linear-gradient(35deg, red, purple);
+  -option: #320a28;
+}
+
 select {
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.1);
+  appearance: auto;
+  border: 0;
+  outline: 0;
+  font: inherit;
   width: 100%;
-  border: 1px solid var(--black-color-o3);
-  padding: 4px;
-  border-radius: 5px;
-  outline: var(--black-color-o4);
+  height: 3em;
+  padding: 12px;
+  color: black;
+  border-radius: 0.25em;
+  cursor: pointer;
+}
+
+select:focus {
+  outline: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+select option {
+  color: inherit;
+  background-color: -option;
+}
+
+@keyframes optionSelect {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
 }
 
 input {
@@ -32,6 +67,8 @@ input {
   padding: 12px;
   border-radius: 5px;
   border: 1px solid #e3e3e3;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
 }
 
 ul, li, a {

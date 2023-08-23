@@ -12,16 +12,19 @@
   flex-direction: column;
   align-items: center;
   padding: 6px 12px;
-  border-radius: 4px;
-  color: var(--primary-color-o5);
+  border-radius: 100%;
   font-weight: 500;
   cursor: pointer;
 }
+.categories-container__top .category-circle img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
 .categories-container__top .category-circle p {
-  white-space: nowrap;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  text-align: center;
+  color: var(--black-color-o5);
+  max-width: 100px;
 }
 .categories-container__top .category-circle .circle {
   width: 60px;

@@ -4,7 +4,7 @@
     font-size: 1rem;
     overflow: auto;
     margin-bottom: 60px;
-
+    
     
     .category-circle {
         display: flex;
@@ -13,16 +13,19 @@
         flex-direction: column;
         align-items: center;
         padding: 6px 12px;
-        border-radius: 4px;
-        color: var(--primary-color-o5);
+        border-radius: 100%;
         font-weight: 500;
         cursor: pointer;
 
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 100%;        }
+
         p {
-            white-space: nowrap;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            text-align: center;
+            color: var(--black-color-o5);
+            max-width: 100px;
         }
 
         .circle {

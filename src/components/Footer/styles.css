@@ -71,12 +71,12 @@
     justify-content: space-between;
     color: white;
     width: 100%;
-    margin: 0 auto;
+    margin: 30px auto;
     max-width: 1160px;
 }
 
 .logotipo img {
-    max-width: 120px;
+    max-width: 80px;
 }
 
 .info-interprise {

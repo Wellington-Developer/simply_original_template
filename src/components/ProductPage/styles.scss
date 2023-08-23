@@ -1,15 +1,17 @@
 .container-product__page {
   width: 100%;
-  margin: 200px auto;
+  margin: 200px auto 0 auto;
+  scroll-behavior: smooth;
 
   .content-product__page {
     display: flex;
     gap: 24px;
-    
-    .rightside-product__page, .leftside-product__page {
+
+    .rightside-product__page,
+    .leftside-product__page {
       flex: 1;
     }
-  
+
     .leftside-product__page {
       display: flex;
       gap: 24px;
@@ -26,7 +28,7 @@
         border-radius: 15px;
       }
     }
-  
+
     .rightside-product__page {
       .bradcrumb {
         display: flex;
@@ -34,11 +36,11 @@
         align-items: center;
         color: var(--black-color-o4);
         margin-bottom: 12px;
-        
+
         svg {
           max-width: 14px;
         }
-        
+
         h1 {
           color: var(--black-color-o5);
           font-size: 0.80rem;
@@ -73,13 +75,29 @@
         }
 
         .description-product__page {
+        scroll-behavior: smooth;
           font-size: 1rem;
           font-weight: 400;
-          color: var(--black-color-o5);
+          display: flex;
+          gap: 12px;
+          align-items: center;
+
+          p {
+            color: var(--black-color-o5);
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            max-width: 350px;
+          }
+
+          a {
+            color: black;
+            font-weight: 500;
+          }
         }
 
       }
-      
+
       .buy-product__page {
         background: rgba(255, 255, 255, 0.2);
         border-radius: 16px;
@@ -93,7 +111,7 @@
           display: flex;
           gap: 12px;
           align-items: center;
-          
+
           h1 {
             color: var(--primary-color-o5);
             padding-bottom: 4px;
@@ -124,7 +142,8 @@
           font-size: 0.85rem;
         }
 
-        svg, img {
+        svg,
+        img {
           max-width: 24px;
           max-height: 24px;
         }
@@ -142,12 +161,14 @@
         flex-direction: column;
         gap: 18px;
 
-        .size-product__page, .quantity-product__page {
+        .size-product__page,
+        .quantity-product__page {
           display: flex;
           align-items: center;
         }
 
-        .size-product__page *, .quantity-product__page * {
+        .size-product__page *,
+        .quantity-product__page * {
           flex: 1;
         }
 
@@ -196,6 +217,15 @@
           color: white;
           cursor: pointer;
           font-weight: 600;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 4px;
+
+          img {
+            max-width: 24px;
+            max-height: 24px;
+          }
         }
 
         button:hover {
@@ -205,6 +235,89 @@
     }
   }
 
+}
+
+#info-desc {
+  padding: 200px 0 0 0;
+}
+
+.container-info__products {
+  display: flex;
+  overflow-x: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--black-color-o5);
+    max-width: 800px;
+  }
+
+  .left-side,
+  .right-side {
+    width: 100%;
+    flex-shrink: 0;
+
+    .title {
+      padding-bottom: 24px;
+
+      h1 {
+        padding: 0;
+        font-size: 1.5rem;
+        color: var(--black-color-o6);
+      }
+
+      p {
+        cursor: pointer;
+      }
+
+      p:hover {
+        color: var(--black-color-o3);
+      }
+
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+  }
+}
+
+.relational-products {
+  margin: 120px auto;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 12px;
+
+  h1 {
+    padding: 24px 0;
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+}
+
+@media screen and (max-width: 834px) {
+  .info-product__page {
+    flex-direction: column;
+  }
+
+  .select-inputs {
+    flex-direction: column;
+
+    select {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .left-side__content img {
+    max-height: 400px;
+  }
 }
 
 @media screen and (max-width: 860px) {

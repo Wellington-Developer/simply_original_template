@@ -43,7 +43,7 @@ export const Product = ({ title, price, image, id }: IProduct) => {
             <p>{title}</p>
             <div className="price">
               <h1>{formatNumber.format(price)}</h1>
-              <span>R$ {formatNumber.format(price - 5)}</span>
+              <span>{formatNumber.format(price - 5)}</span>
             </div>
           </div>
           <div className="button-single__product" >

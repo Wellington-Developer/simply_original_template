@@ -18,15 +18,36 @@ import { FaStar } from 'react-icons/fa';
 import { AiOutlinePlusCircle, AiOutlineMinusCircle, AiOutlineWhatsApp } from 'react-icons/ai';
 
 // Assets
-import TruckIcon from '../../assets/truck.svg';
+import PaymentPix from '../../assets/pix.svg';
 import CardIcon from '../../assets/card-2.svg';
+import Cart from '../../assets/cart.svg';
+import { ProductRow } from '../ProductRow';
 
 export const ProductPage = () => {
   const images = ["https://loja.simply.app.br/arquivos_produtos/159/71468/cde93a9826ac6a605d98acbfe0faed3f20230407234705.jpeg", "https://loja.simply.app.br/arquivos_produtos/159/71468/cde93a9826ac6a605d98acbfe0faed3f20230407234705.jpeg"]
 
   const refferenceImage = useRef(null)
-
+  const refWidth = useRef(null)
   const [ contProduct, setContProduct ] = useState(1);
+  
+  const handleScrollLeft = () => {
+    refWidth.current.scrollLeft -= refWidth.current.offsetWidth;
+  }
+  const handleScrollRight = () => {
+    refWidth.current.scrollLeft += refWidth.current.offsetWidth;
+  }
+
+  const handleCounterPlus = () => {
+    setContProduct(contProduct + 1)
+  }
+
+  const handleCounterMinus = () => {
+    if(contProduct <= 1) {
+      setContProduct(1)
+    } else {
+      setContProduct(contProduct - 1)
+    }
+  }
 
   const handleImageOnClick = () => {
     refferenceImage.current.scrollLeft += refferenceImage.current.offsetWidth + 24;
@@ -69,6 +90,8 @@ export const ProductPage = () => {
 
                 <div className="description-product__page">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil est error quod officiis, ab nesciunt quis possimus facilis cupiditate ducimus eaque, voluptatem a. Consequatur, dolore?</p>
+
+                  <a href="#info-desc">Ver mais</a>
                 </div>
               </div>
 
@@ -84,16 +107,25 @@ export const ProductPage = () => {
 
                 <div className="freight">
                   <div className="item-frete">
-                    <img src={TruckIcon} alt="frete.description" />
+                    <img src={CardIcon} alt="frete.description" />
                     <h1>10x sem juros no cartão de crédito.</h1>
                   </div>
                   <div className="item-frete">
-                    <img src={CardIcon} alt="frete.description" />
+                    <img src={ PaymentPix } alt="frete.description" />
                     <h1>10% de desconto para pagamento via PIX</h1>
                   </div>
                 </div>
 
                 <div className="select-product__page">
+                  <div className="size-product__page">
+                    <p>Cor:</p>
+                    <select name="Selecione" id="">
+                      <option value="P">Rosa</option>
+                      <option value="P">Verde</option>
+                      <option value="P">Florido</option>
+                    </select>
+                  </div>
+
                   <div className="size-product__page">
                     <p>Tamanho:</p>
                     <select name="Selecione" id="">
@@ -106,20 +138,47 @@ export const ProductPage = () => {
                   <div className="quantity-product__page">
                     <p>Quantidade</p>
                     <div className="infoquantity-product__page">
-                      <AiOutlineMinusCircle />
+                      <AiOutlineMinusCircle onClick={ handleCounterMinus }/>
                         <h3>{ contProduct }</h3>
-                      <AiOutlinePlusCircle />
+                      <AiOutlinePlusCircle onClick={ handleCounterPlus } />
                     </div>
                   </div>
                 </div>
 
                 <div className="buttonbuy-product__page">
+                  <button>
+                    <img src={ Cart } alt="cart" />
+                    Adicionar</button>
                   <button id="button-wpp"><AiOutlineWhatsApp />Compra rápida pelo whatsapp</button>
-                  <button>Adicionar</button>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+        <div className="container" id="info-desc">
+        <div className="container-info__products" ref={refWidth}>
+                <div className="left-side">
+                  <div className="title" >
+                    <h1>Descrição</h1>
+                    <p onClick={handleScrollRight}>Ver avaliações</p>
+                  </div>
+                  <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius, voluptatibus quae vero quibusdam possimus ratione iste nisi sapiente cumque ad, mollitia enim assumenda? Architecto, aspernatur.</h3>
+                </div>
+                <div className="right-side">
+                  <div className="title">
+                    <h1>Avaliações</h1>
+                    <p onClick={handleScrollLeft}>Ver descrição</p>
+                  </div>
+                  <div>
+                    <h3>Ainda não há nenhuma avaliação</h3>
+                  </div>
+                </div>
+              </div>
+        </div>
+
+        <div className='container relational-products'>
+          <h1>Você também pode gostar de:</h1>
+          <ProductRow category="men's clothing"/>
         </div>
       <Footer />
     </>

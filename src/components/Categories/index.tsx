@@ -20,7 +20,9 @@ export const Categories = () => {
                         return <div key={index}>
                                 <Link to={`/category/${item}`}>
                                     <div className="category-circle" >
-                                    <div className="circle"></div>
+                                    <div className="circle">
+                                        <img src="https://loja.simply.app.br/arquivos_produtos/159/71453/897dbd9795b60f8c7d9e7c6f6c0b78d420230408104139.webp" alt="product category" />
+                                    </div>
                                             <p>{item}</p>
                                     </div>
                                 </Link>

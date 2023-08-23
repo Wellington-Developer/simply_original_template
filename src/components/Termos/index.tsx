@@ -1,7 +1,11 @@
+import { Footer } from '../Footer';
+import { Header } from '../Header';
 import './index.css';
 
 export const Termos = () => {
   return (
+    <>
+    <Header />
     <div className="container">
       <main>
         <div className="titulo-bg">
@@ -23,5 +27,7 @@ export const Termos = () => {
         </div>
       </main>
     </div>
+    <Footer />
+    </>
   )
 }
