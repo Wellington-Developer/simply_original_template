@@ -7,10 +7,10 @@ import { Footer } from "../Footer"
 import { Header } from "../Header"
 
 // React Hooks
-import { useRef, useState } from "react";
+import { useContext, useRef, useState, useEffect } from "react";
 
 // React Router Dom
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 // React Icons
 import { IoIosArrowForward } from 'react-icons/io';
@@ -22,6 +22,7 @@ import PaymentPix from '../../assets/pix.svg';
 import CardIcon from '../../assets/card-2.svg';
 import Cart from '../../assets/cart.svg';
 import { ProductRow } from '../ProductRow';
+import { GlobalContext } from '../context/GlobalContext';
 
 export const ProductPage = () => {
   const images = ["https://loja.simply.app.br/arquivos_produtos/159/71468/cde93a9826ac6a605d98acbfe0faed3f20230407234705.jpeg", "https://loja.simply.app.br/arquivos_produtos/159/71468/cde93a9826ac6a605d98acbfe0faed3f20230407234705.jpeg"]
@@ -29,6 +30,9 @@ export const ProductPage = () => {
   const refferenceImage = useRef(null)
   const refWidth = useRef(null)
   const [ contProduct, setContProduct ] = useState(1);
+  const { setProductToCart } = useContext(GlobalContext)
+  const param = useParams()
+  const [ product, setProduct ] = useState<any>()
   
   const handleScrollLeft = () => {
     refWidth.current.scrollLeft -= refWidth.current.offsetWidth;
@@ -41,23 +45,37 @@ export const ProductPage = () => {
     setContProduct(contProduct + 1)
   }
 
+  const fetchProduct = () => {
+    fetch(`https://fakestoreapi.com/products/${param.id}`)
+    .then(r => r.json())
+    .then(jsn => setProduct(jsn))
+  }
+
   const handleCounterMinus = () => {
     if(contProduct <= 1) {
       setContProduct(1)
     } else {
       setContProduct(contProduct - 1)
     }
+
+    console.log(product)
+    
   }
 
   const handleImageOnClick = () => {
     refferenceImage.current.scrollLeft += refferenceImage.current.offsetWidth + 24;
-    console.log(setContProduct)
   }
+
+  useEffect(() => {
+    fetchProduct()
+  }, [])
 
   return (
     <>
       <Header  />
-        <div className="container container-product__page">
+        {
+          product && <>
+            <div className="container container-product__page">
           <div className="content-product__page">
             <div className="leftside-product__page" ref={ refferenceImage } onClick={ handleImageOnClick }>
               {
@@ -70,13 +88,13 @@ export const ProductPage = () => {
               <div className="bradcrumb">
                 <Link to="/"><h1>Home</h1></Link>
                 <IoIosArrowForward />
-                <Link to="/"><h1>Vestidos</h1></Link>
+                <Link to="/"><h1>{product.category}</h1></Link>
                 <IoIosArrowForward />
-                <Link to="/"><h1>Vestido longo escuro</h1></Link>
+                <Link to="/"><h1>Página atual</h1></Link>
               </div>
 
               <div className="info-product__page">
-                <h1>Vestido Longo Rosa Escuro</h1>
+                <h1>{product.title}</h1>
                 <div className="evaluation">
                   <div className="icons-star">
                     <FaStar />
@@ -89,7 +107,7 @@ export const ProductPage = () => {
                 </div>
 
                 <div className="description-product__page">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil est error quod officiis, ab nesciunt quis possimus facilis cupiditate ducimus eaque, voluptatem a. Consequatur, dolore?</p>
+                  <p>{product.description}</p>
 
                   <a href="#info-desc">Ver mais</a>
                 </div>
@@ -97,7 +115,7 @@ export const ProductPage = () => {
 
               <div className="buy-product__page">
                 <div className="price-product__page">
-                  <h1>R$ 89,00</h1>
+                  <h1>R$ {product.price}</h1>
                   <p>R$ 109,00</p>
                 </div>
 
@@ -146,7 +164,7 @@ export const ProductPage = () => {
                 </div>
 
                 <div className="buttonbuy-product__page">
-                  <button>
+                  <button onClick={() => setProductToCart(product.id,  contProduct, "P", "Vermelho")}>
                     <img src={ Cart } alt="cart" />
                     Adicionar</button>
                   <button id="button-wpp"><AiOutlineWhatsApp />Compra rápida pelo whatsapp</button>
@@ -162,7 +180,7 @@ export const ProductPage = () => {
                     <h1>Descrição</h1>
                     <p onClick={handleScrollRight}>Ver avaliações</p>
                   </div>
-                  <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius, voluptatibus quae vero quibusdam possimus ratione iste nisi sapiente cumque ad, mollitia enim assumenda? Architecto, aspernatur.</h3>
+                  <h3>{product.description}</h3>
                 </div>
                 <div className="right-side">
                   <div className="title">
@@ -180,6 +198,8 @@ export const ProductPage = () => {
           <h1>Você também pode gostar de:</h1>
           <ProductRow category="men's clothing"/>
         </div>
+          </>
+        }
       <Footer />
     </>
   )

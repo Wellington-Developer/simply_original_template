@@ -9,6 +9,7 @@ export const GlobalStorage = ({ children }) => {
   const [ productsCategory, setProductCategory ] = useState()
   const [ dataProduct, setDataProduct ] = useState()
   const [ termsUserHasBeenAccepted, setTermsUserHasBeenAccepted ] = useState<any>()
+  const [ quantity, setQuantity ] = useState(1)
 
 
   const getAllProducts = () => {
@@ -38,9 +39,16 @@ export const GlobalStorage = ({ children }) => {
     setTermsUserHasBeenAccepted(data)
   }
 
-  const setProductToCart = (id) => {
+  const setProductToCart = (id, quantity, size, color) => {
       const product = allProducts.find((product) => product.id === id);
+      const completeProduct = [
+        product,
+        quantity,
+        size,
+        color
+      ]
       const isProductAlready = cart.some(carting => carting.id === product.id);
+      console.log(isProductAlready )
       setShowPopup(true);
 
       setTimeout(() => {
@@ -49,14 +57,14 @@ export const GlobalStorage = ({ children }) => {
 
       if(!isProductAlready) {
         localStorage.setItem('cartProducts',
-        JSON.stringify([...cart, product]))
-        setCart([...cart, product])
+        JSON.stringify([...cart, completeProduct]))
+        setCart([...cart, completeProduct])
       }
 
   }
 
   const deleteProductToCart = (id: number) => {
-    const newCart = cart.filter((item) => item.id !== id)
+    const newCart = cart.filter((item) => item[0].id !== id)
     setCart(newCart)
     localStorage.setItem('cartProducts',
     JSON.stringify(newCart))
@@ -72,6 +80,11 @@ export const GlobalStorage = ({ children }) => {
     }
   }
 
+  const productQuantityCart = (quantity) => {
+    setQuantity(quantity)
+    console.log(quantity)
+  }
+
 
   useEffect(() => {
     getAllProducts()
@@ -81,6 +94,6 @@ export const GlobalStorage = ({ children }) => {
   }, [])
 
   return (
-    <GlobalContext.Provider value={ { allProducts, allCategories, setProductToCart, cart, deleteProductToCart, getProductsPerCategory, productsCategory, showPopup, setNewProduct, dataProduct, termsUserHasBeenAccepted } }>{children}</GlobalContext.Provider>
+    <GlobalContext.Provider value={ { allProducts, allCategories, setProductToCart, cart, deleteProductToCart, getProductsPerCategory, productsCategory, showPopup, setNewProduct, dataProduct, termsUserHasBeenAccepted, quantity, productQuantityCart } }>{children}</GlobalContext.Provider>
   )
 }

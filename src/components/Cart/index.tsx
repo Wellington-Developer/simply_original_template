@@ -17,6 +17,8 @@ export const Cart = () => {
   const [discount, setDiscount] = useState();
   const [hasDiscount, setHasDiscount] = useState(0)
 
+  const { quantity } = useContext(GlobalContext)
+
   const handleChangeDiscount = (e: any) => {
     setDiscount(e.target.value)
     if (discount == "test") {
@@ -28,14 +30,14 @@ export const Cart = () => {
 
   const sumPrice = () => {
     cart.map((product) => {
-      soma += product.price
-      setProductPrice(soma)
+      soma += product[0].price
+      setProductPrice(soma * quantity)
     })
   }
 
   useEffect(() => {
     sumPrice()
-  }, [cart])
+  }, [cart, quantity])
 
   return (
     <div className="container">
@@ -52,7 +54,7 @@ export const Cart = () => {
               cart.length > 0 ?
                 (
                   cart.map((product, index) => {
-                    return <ProductCart title={product.title} image={product.image} id={product.id} price={product.price} key={index} />
+                    return <ProductCart title={product[0].title} image={product[0].image} id={product[0].id} price={product[0].price} key={index} quantity={product[1]}/>
                   })
                 ) : (
                   <p>Adicione produtos ao carrinho.</p>
@@ -77,8 +79,11 @@ export const Cart = () => {
           </div>
 
           <div className="quicly-resume__cart">
-            <h4>Total:</h4>
-            <h3>R$ { productPrice - hasDiscount}</h3>
+            {
+              cart.length <= 0 ?
+              (<h1>R$ 0</h1>) :
+              (<><h1>R$ { (productPrice - hasDiscount)}</h1></>)
+            }
           </div>
 
           <div className="button">
