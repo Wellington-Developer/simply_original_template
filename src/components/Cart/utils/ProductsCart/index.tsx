@@ -8,7 +8,7 @@ import { useContext, useEffect, useState } from 'react';
 import { GlobalContext } from '../../../context/GlobalContext';
 
 // React Icons
-import { AiOutlineDelete, AiOutlineMinusCircle, AiOutlinePlusCircle } from 'react-icons/ai';
+import { AiOutlineMinusCircle, AiOutlinePlusCircle } from 'react-icons/ai';
 
 
 export const ProductCart = ({ id, qtd, size, color }) => {
