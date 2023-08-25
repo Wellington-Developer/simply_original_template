@@ -70,7 +70,7 @@ export const Footer = () => {
     return (
         <div className="container-footer" ref={refferenceWidth}>
             <div className="submenu">
-                <div className="box-footer" onClick={!deskTopLinks && toggleLinks}>
+                <div className="box-footer" onClick={!deskTopLinks ? toggleLinks : undefined}>
                     <div className="top-footer">
                         <h1 >Institucional</h1>
                         {
@@ -95,7 +95,7 @@ export const Footer = () => {
                         </ul>
                     }
                 </div>
-                <div className="box-footer" onClick={!deskTopLinks && toggleLinks2}>
+                <div className="box-footer" onClick={!deskTopLinks ? toggleLinks2 : undefined}>
                     <div className="top-footer">
                         <h1 >Categorias</h1>
                         {
@@ -123,7 +123,7 @@ export const Footer = () => {
                     }
                 </div>
                 <div className="box-footer">
-                    <div className="top-footer" onClick={!deskTopLinks && toggleLinks3}>
+                    <div className="top-footer" onClick={!deskTopLinks ? toggleLinks3 : undefined}>
                         <h1>Contatos</h1>
                         {
                             !deskTopLinks && <div>
@@ -145,7 +145,7 @@ export const Footer = () => {
                     }
                 </div>
                 <div className="box-footer midia-social">
-                    <div className="top-footer" onClick={!deskTopLinks && toggleLinks4}>
+                    <div className="top-footer" onClick={!deskTopLinks ? toggleLinks4 : undefined}>
                         <h1 >Redes Sociais</h1>
                         {
                             !deskTopLinks && <div>

@@ -2,7 +2,7 @@
 import './styles.css';
 
 // React Components
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 // React Context
 import { GlobalContext } from '../../../context/GlobalContext';
@@ -11,41 +11,57 @@ import { GlobalContext } from '../../../context/GlobalContext';
 import { AiOutlineDelete, AiOutlineMinusCircle, AiOutlinePlusCircle } from 'react-icons/ai';
 
 
-export const ProductCart = ({ title, image, price, id, quantity }) => {
-  const { deleteProductToCart } = useContext(GlobalContext);
-  const [ totalQuantityProducts, setTotalQuantityProducts ] = useState(quantity)
+export const ProductCart = ({ id, qtd, size, color }) => {
+  const [ productCart, setProductCart ] = useState<any>()
 
-  const { productQuantityCart } = useContext(GlobalContext)
+  const { addProductToCart, removeProductToCart } = useContext(GlobalContext)
 
-  const handleQuantityMinus = () => {
-    setTotalQuantityProducts(totalQuantityProducts - 1)
-    productQuantityCart(totalQuantityProducts - 1)
+
+  const getProductPerId = (id) => {
+    fetch(`https://fakestoreapi.com/products/${id}`)
+    .then(r => r.json())
+    .then(res => setProductCart(res))
   }
 
-  const handleQuantityPlus = () => {
-    setTotalQuantityProducts(totalQuantityProducts + 1)
-    productQuantityCart(totalQuantityProducts + 1)
-  }
-
+  useEffect(() => {
+    getProductPerId(id)
+  }, [])
 
   return (
-    <div className="container-product__cart">
-      <div className="image-product__cart">
-        <img src={ image } alt="image product cart"/>
-      </div>
+    <>
+      {
+        productCart &&
+        <>
+          <div className="container-product__cart">
+              <div className="image-product__cart">
+                <img src={ productCart.image } alt="image product cart"/>
+              </div>
 
-      <div className="info-product__cart">
-        <p>{ title }</p>
-        <h1>R$ {price * totalQuantityProducts}</h1>
-        <div className="controller-quantity">
-          <AiOutlineMinusCircle onClick={ handleQuantityMinus }/>
-          <h3>{totalQuantityProducts}</h3>
-          <AiOutlinePlusCircle onClick={ handleQuantityPlus }/>
-        </div>
-      </div>
-        <div className="controller-product__cart" onClick={ () => deleteProductToCart(id) }>
-          <AiOutlineDelete />
-        </div>
-    </div>
+              <div className="info-product__cart">
+                <p>{ productCart.title }</p>
+                {
+                  qtd == 1 ?
+                  (<h1>R$ { productCart.price }</h1>) :
+                  (<div className="price-product__cart">
+                    <h1>R$ { productCart.price * qtd }</h1>
+                    <p>R$ { productCart.price } cada</p>
+                  </div>)
+                }
+                <div className="controller-quantity">
+                  <div className="quantity">
+                    <AiOutlineMinusCircle onClick={ () => removeProductToCart(id, size, color, productCart.price) }/>
+                    <h3>{ qtd }</h3>
+                    <AiOutlinePlusCircle onClick={ () => addProductToCart(id, productCart.title, qtd, size, color, productCart.price) }/>
+                  </div>
+                  <div className="controller-info">
+                    <p>{size}</p>
+                    <p>{color}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </>
+      }
+    </>
   )
 }

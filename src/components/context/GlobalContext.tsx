@@ -9,7 +9,6 @@ export const GlobalStorage = ({ children }) => {
   const [ productsCategory, setProductCategory ] = useState()
   const [ dataProduct, setDataProduct ] = useState()
   const [ termsUserHasBeenAccepted, setTermsUserHasBeenAccepted ] = useState<any>()
-  const [ quantity, setQuantity ] = useState(1)
 
 
   const getAllProducts = () => {
@@ -38,40 +37,50 @@ export const GlobalStorage = ({ children }) => {
     const data = localStorage.getItem("termos")
     setTermsUserHasBeenAccepted(data)
   }
+  
+  const addProductToCart = (id, nameProduct, qtd, size, color, totalPrice) => {
+    setShowPopup(true)
+    const copyProductsCart = [...cart]
+    const item = copyProductsCart.find((product) => product.id === id && product.size == size && product.color == color)
 
-  const setProductToCart = (id, quantity, size, color) => {
-      const product = allProducts.find((product) => product.id === id);
-      const completeProduct = [
-        product,
-        quantity,
-        size,
-        color
-      ]
-      const isProductAlready = cart.some(carting => carting.id === product.id);
-      console.log(isProductAlready )
-      setShowPopup(true);
+    if(!item) {
+      copyProductsCart.push({id: id, nameProduct: nameProduct, qtd: qtd, size: size, color: color, totalPrice: totalPrice * qtd})
+    } else {
+      item.qtd = item.qtd + 1;
+      item.totalPrice = totalPrice * item.qtd
+    }
 
-      setTimeout(() => {
-        setShowPopup(false);
-      }, 5000);
-
-      if(!isProductAlready) {
-        localStorage.setItem('cartProducts',
-        JSON.stringify([...cart, completeProduct]))
-        setCart([...cart, completeProduct])
-      }
+    setCart(copyProductsCart)
+    localStorage.setItem(
+      'productsCart',
+      JSON.stringify(copyProductsCart)
+    )
 
   }
 
-  const deleteProductToCart = (id: number) => {
-    const newCart = cart.filter((item) => item[0].id !== id)
-    setCart(newCart)
-    localStorage.setItem('cartProducts',
-    JSON.stringify(newCart))
+  const removeProductToCart = (id, size, color, price) => {
+    const copyProductsCart = [...cart]
+    const item = copyProductsCart.find((product) => product.id === id && product.size === size && product.color === color);
+
+    if(item.qtd > 1) {
+      item.qtd = item.qtd - 1
+      item.totalPrice = price * item.qtd
+      setCart(copyProductsCart)
+      localStorage.setItem(
+      'productsCart',
+      JSON.stringify(copyProductsCart))
+    } else {
+      const arrayFiltered = copyProductsCart.filter((product) => product.id !== id || product.size !== size || product.color !== color)
+      setCart(arrayFiltered)
+      localStorage.setItem(
+      'productsCart',
+      JSON.stringify(arrayFiltered)
+    )
+    }
   }
 
-  const loadCart = () => {
-    const productsCart: any = JSON.parse(localStorage.getItem('cartProducts'))
+   const loadCart = () => {
+    const productsCart: any = JSON.parse(localStorage.getItem('productsCart'))
 
     if(productsCart) {
       setCart(productsCart)
@@ -80,20 +89,15 @@ export const GlobalStorage = ({ children }) => {
     }
   }
 
-  const productQuantityCart = (quantity) => {
-    setQuantity(quantity)
-    console.log(quantity)
-  }
-
 
   useEffect(() => {
     getAllProducts()
     getAllCategories()
-    userHasBeenAcceptTerms()
+    userHasBeenAcceptTerms() 
     loadCart()
   }, [])
 
   return (
-    <GlobalContext.Provider value={ { allProducts, allCategories, setProductToCart, cart, deleteProductToCart, getProductsPerCategory, productsCategory, showPopup, setNewProduct, dataProduct, termsUserHasBeenAccepted, quantity, productQuantityCart } }>{children}</GlobalContext.Provider>
+    <GlobalContext.Provider value={ { allProducts, allCategories, cart, getProductsPerCategory, productsCategory, showPopup, setNewProduct, dataProduct, termsUserHasBeenAccepted, addProductToCart, removeProductToCart } }>{children}</GlobalContext.Provider>
   )
 }

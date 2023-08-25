@@ -25,14 +25,30 @@ import { ProductRow } from '../ProductRow';
 import { GlobalContext } from '../context/GlobalContext';
 
 export const ProductPage = () => {
+  const colorProduct = [
+    {id: 1, name: 'Verde'},
+    {id: 2, name: 'Vermelho'},
+    {id: 3, name: 'Rosa'},
+    {id: 4, name: 'Florido'},
+  ];
+
+  const sizeProduct = [
+    {id: 1, name: 'P'},
+    {id: 2, name: 'M'},
+    {id: 3, name: 'G'},
+    {id: 4, name: 'XG'},
+  ];
+
   const images = ["https://loja.simply.app.br/arquivos_produtos/159/71468/cde93a9826ac6a605d98acbfe0faed3f20230407234705.jpeg", "https://loja.simply.app.br/arquivos_produtos/159/71468/cde93a9826ac6a605d98acbfe0faed3f20230407234705.jpeg"]
 
   const refferenceImage = useRef(null)
   const refWidth = useRef(null)
   const [ contProduct, setContProduct ] = useState(1);
-  const { setProductToCart } = useContext(GlobalContext)
   const param = useParams()
   const [ product, setProduct ] = useState<any>()
+  const [ size, setSize ] = useState<any>(sizeProduct[0].name)
+  const [ color, setColor ] = useState<any>(colorProduct[0].name)
+  const { addProductToCart } = useContext(GlobalContext)
   
   const handleScrollLeft = () => {
     refWidth.current.scrollLeft -= refWidth.current.offsetWidth;
@@ -41,25 +57,19 @@ export const ProductPage = () => {
     refWidth.current.scrollLeft += refWidth.current.offsetWidth;
   }
 
-  const handleCounterPlus = () => {
-    setContProduct(contProduct + 1)
+  const handlePlusProductCart = () => {
+    let productHandled = contProduct
+    setContProduct(++productHandled)
   }
 
+  const handleMinusProductCart = () => {
+    let productHandled = contProduct
+    setContProduct(--productHandled)
+  }
   const fetchProduct = () => {
     fetch(`https://fakestoreapi.com/products/${param.id}`)
     .then(r => r.json())
     .then(jsn => setProduct(jsn))
-  }
-
-  const handleCounterMinus = () => {
-    if(contProduct <= 1) {
-      setContProduct(1)
-    } else {
-      setContProduct(contProduct - 1)
-    }
-
-    console.log(product)
-    
   }
 
   const handleImageOnClick = () => {
@@ -115,8 +125,8 @@ export const ProductPage = () => {
 
               <div className="buy-product__page">
                 <div className="price-product__page">
-                  <h1>R$ {product.price}</h1>
-                  <p>R$ 109,00</p>
+                  <h1>R$ {product.price * contProduct - 20}</h1>
+                  <p>R$ {product.price * contProduct }</p>
                 </div>
 
                 <div className="discount-product__page">
@@ -137,35 +147,39 @@ export const ProductPage = () => {
                 <div className="select-product__page">
                   <div className="size-product__page">
                     <p>Cor:</p>
-                    <select name="Selecione" id="">
-                      <option value="P">Rosa</option>
-                      <option value="P">Verde</option>
-                      <option value="P">Florido</option>
+                    <select value={color} onChange={e => setColor(e.target.value)}>
+                    {
+                      colorProduct.map((item, index) => (
+                        <option value={item.name} key={index}>{item.name}</option>
+                      ))
+                    }
                     </select>
                   </div>
 
                   <div className="size-product__page">
                     <p>Tamanho:</p>
-                    <select name="Selecione" id="">
-                      <option value="P">P</option>
-                      <option value="P">M</option>
-                      <option value="P">G</option>
+                    <select value={size} onChange={e => setSize(e.target.value)}>
+                      {
+                        sizeProduct.map((item, index) => (
+                          <option value={item.name} key={index}>{item.name}</option>
+                        ))
+                      }
                     </select>
                   </div>
 
                   <div className="quantity-product__page">
                     <p>Quantidade</p>
                     <div className="infoquantity-product__page">
-                      <AiOutlineMinusCircle onClick={ handleCounterMinus }/>
+                      <AiOutlineMinusCircle onClick={ handleMinusProductCart } />
                         <h3>{ contProduct }</h3>
-                      <AiOutlinePlusCircle onClick={ handleCounterPlus } />
+                      <AiOutlinePlusCircle onClick={ handlePlusProductCart }/>
                     </div>
                   </div>
                 </div>
 
                 <div className="buttonbuy-product__page">
-                  <button onClick={() => setProductToCart(product.id,  contProduct, "P", "Vermelho")}>
-                    <img src={ Cart } alt="cart" />
+                  <button onClick={ () => addProductToCart(product.id, product.title, contProduct, size, color, product.price) }>
+                    <img src={ Cart } alt="cart"/>
                     Adicionar</button>
                   <button id="button-wpp"><AiOutlineWhatsApp />Compra rápida pelo whatsapp</button>
                 </div>

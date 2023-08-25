@@ -8,7 +8,6 @@ import { useContext, useEffect, useState } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
 import { Link } from 'react-router-dom';
 
-
 export const Cart = () => {
   const userAtive = localStorage.getItem("user-active");
   const { cart } = useContext(GlobalContext);
@@ -16,8 +15,21 @@ export const Cart = () => {
   const [productPrice, setProductPrice] = useState(0)
   const [discount, setDiscount] = useState();
   const [hasDiscount, setHasDiscount] = useState(0)
+  const [ message, setMessage ] = useState<any>([])
+  const sumProductCart = () => {
+    cart.map((productCart) => {
+      soma += productCart.totalPrice
+      setProductPrice(soma)
+    })
+  }
 
-  const { quantity } = useContext(GlobalContext)
+  const messageToClient = () => {
+    cart.map((product) => {
+      setMessage([...message, `[*] ${product.nameProduct} - Quantidade: ${product.qtd} - Cor: ${product.color} - Tamanho: ${product.size}. Fica um total de ${product.totalPrice}`])
+    })
+
+    console.log(message)
+  }
 
   const handleChangeDiscount = (e: any) => {
     setDiscount(e.target.value)
@@ -28,16 +40,9 @@ export const Cart = () => {
     }
   }
 
-  const sumPrice = () => {
-    cart.map((product) => {
-      soma += product[0].price
-      setProductPrice(soma * quantity)
-    })
-  }
-
   useEffect(() => {
-    sumPrice()
-  }, [cart, quantity])
+    sumProductCart()
+  }, [cart])
 
   return (
     <div className="container">
@@ -54,7 +59,7 @@ export const Cart = () => {
               cart.length > 0 ?
                 (
                   cart.map((product, index) => {
-                    return <ProductCart title={product[0].title} image={product[0].image} id={product[0].id} price={product[0].price} key={index} quantity={product[1]}/>
+                    return <ProductCart id={ product.id } qtd={ product.qtd } size={ product.size } color={ product.color } key={index}/>
                   })
                 ) : (
                   <p>Adicione produtos ao carrinho.</p>
@@ -82,12 +87,13 @@ export const Cart = () => {
             {
               cart.length <= 0 ?
               (<h1>R$ 0</h1>) :
-              (<><h1>R$ { (productPrice - hasDiscount)}</h1></>)
+              (<div className="resume-cart">
+                <a href={`https://wa.me//556281470582?text=${message}`}>
+                  <button onClick={messageToClient}>Finalizar pedido</button>
+                </a>
+                <h1>R$ { (productPrice - hasDiscount)}</h1>
+              </div>)
             }
-          </div>
-
-          <div className="button">
-
           </div>
         </div>
       </div>

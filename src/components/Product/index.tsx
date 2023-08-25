@@ -23,8 +23,6 @@ type IProduct = {
 
 export const Product = ({ title, price, image, id }: IProduct) => {
 
-  console.log(image)
-
   const { showPopup } = useContext(GlobalContext);
 
   const options = { style: 'currency', currency: 'BRL' }
