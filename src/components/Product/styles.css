@@ -8,6 +8,7 @@
   z-index: 1;
 }
 .container-single__product .content-single__product .image-single__product {
+  position: relative;
   max-width: 350px;
   height: 300px;
   background-repeat: no-repeat;
@@ -15,6 +16,15 @@
   background-position: center;
   margin-bottom: 12px;
   border-radius: 5px;
+}
+.container-single__product .content-single__product .image-single__product .discount {
+  padding: 4px;
+  border-radius: 5px;
+  background: var(--primary-color-o5);
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-weight: 500;
 }
 .container-single__product .content-single__product .info-single__product {
   margin-bottom: 12px;

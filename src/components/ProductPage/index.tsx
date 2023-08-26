@@ -43,6 +43,7 @@ export const ProductPage = () => {
 
   const refferenceImage = useRef(null)
   const refWidth = useRef(null)
+  const refferenceController = useRef(null)
   const [ contProduct, setContProduct ] = useState(1);
   const param = useParams()
   const [ product, setProduct ] = useState<any>()
@@ -72,13 +73,41 @@ export const ProductPage = () => {
     .then(jsn => setProduct(jsn))
   }
 
-  const handleImageOnClick = () => {
-    refferenceImage.current.scrollLeft += refferenceImage.current.offsetWidth + 24;
+  const handleImage = (index) => {
+    const controllerElement: HTMLInputElement | any = refferenceController.current?.children;
+
+    if(index > 0) {
+      refferenceImage.current.scrollLeft = (refferenceImage.current.offsetWidth * index) + 24;
+    } else {
+      refferenceImage.current.scrollLeft = 0
+    }
+
+    handleControllerBanner(controllerElement, index)
+  }
+
+  const setFirstImage = (index) => {
+    if(refferenceController.current != null) {
+      handleImage(index)
+    }
+  }
+
+  const handleControllerBanner = (ref: any, index: any) => {
+    Array.from(ref).forEach((element: HTMLInputElement | any) => {
+      if(element.classList.contains('active')) {
+        element.classList.remove('active')
+      } else {
+        ref[index].classList.add('active')
+      }
+    })
   }
 
   useEffect(() => {
     fetchProduct()
   }, [])
+
+  useEffect(() => {
+    setFirstImage(0)
+  }, [product])
 
   return (
     <>
@@ -87,13 +116,20 @@ export const ProductPage = () => {
           product && <>
             <div className="container container-product__page">
           <div className="content-product__page">
-            <div className="leftside-product__page" ref={ refferenceImage } onClick={ handleImageOnClick }>
+            <div className="leftside-product__page" ref={ refferenceImage } >
               {
                 images && images.map((image, index) => {
                   return <img src={image} alt="product image" key={ index }/>
                 })
               }
             </div>
+            <div className="bottom-images" ref={ refferenceController }>
+                {
+                  images && images.map((image, indexed) => {
+                    return <img src={image} alt="product image" key={ indexed } onClick={ () => handleImage(indexed) }/>
+                  })
+                }
+              </div>
             <div className="rightside-product__page">
               <div className="bradcrumb">
                 <Link to="/"><h1>Home</h1></Link>

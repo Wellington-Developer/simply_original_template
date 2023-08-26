@@ -4,7 +4,7 @@ export const GlobalContext = React.createContext(null);
 export const GlobalStorage = ({ children }) => {
   const [ showPopup, setShowPopup] = useState(false);
   const [ allProducts, setAllProducts ] = useState([])
-  const [ allCategories, setAllCategories ] = useState()
+  const [ allCategories, setAllCategories ] = useState([])
   const [ cart, setCart ] = useState<any>([])
   const [ productsCategory, setProductCategory ] = useState()
   const [ dataProduct, setDataProduct ] = useState()

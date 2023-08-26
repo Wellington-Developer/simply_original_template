@@ -3,3 +3,16 @@
   gap: 24px;
 }
 
+.product-category__row {
+  .info-category {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+
+    a {
+      font-weight: 500;
+      color: var(--primary-color-o5);
+    }
+  }
+}

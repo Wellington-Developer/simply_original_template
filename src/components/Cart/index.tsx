@@ -15,7 +15,6 @@ export const Cart = () => {
   const [productPrice, setProductPrice] = useState(0)
   const [discount, setDiscount] = useState();
   const [hasDiscount, setHasDiscount] = useState(0)
-  const [ message, setMessage ] = useState<any>([])
   const sumProductCart = () => {
     cart.map((productCart) => {
       soma += productCart.totalPrice
@@ -23,12 +22,13 @@ export const Cart = () => {
     })
   }
 
+  let message = []
+
   const messageToClient = () => {
     cart.map((product) => {
-      setMessage([...message, `[*] ${product.nameProduct} - Quantidade: ${product.qtd} - Cor: ${product.color} - Tamanho: ${product.size}. Fica um total de ${product.totalPrice}`])
+      let mess = `[*] ${product.nameProduct} - Quantidade: ${product.qtd} - Cor: ${product.color} - Tamanho: ${product.size}. Fica um total de ${product.totalPrice}`
+      message.push(mess)
     })
-
-    console.log(message)
   }
 
   const handleChangeDiscount = (e: any) => {

@@ -6,6 +6,28 @@
   .content-product__page {
     display: flex;
     gap: 24px;
+    position: relative;
+
+    .bottom-images {
+      position: absolute;
+      height: 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      top: 12px;
+      left: 12px;
+
+      img {
+        cursor: pointer;
+        display: block;
+        width: 60px;
+        border-radius: 5px;
+      }
+
+      img.active {
+        border: 6px solid white;
+      }
+    }
 
     .rightside-product__page,
     .leftside-product__page {
@@ -19,6 +41,7 @@
       overflow-x: hidden;
       scroll-behavior: smooth;
       max-height: 700px;
+      width: 100%;
 
       img {
         flex-shrink: 0;

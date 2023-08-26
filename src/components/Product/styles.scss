@@ -8,8 +8,10 @@
   z-index: 1;
 
   .content-single__product {
-
+    
+    
     .image-single__product {
+      position: relative;
       max-width: 350px;
       height: 300px;
       background-repeat: no-repeat;
@@ -17,6 +19,16 @@
       background-position: center;
       margin-bottom: 12px;
       border-radius: 5px;
+
+      .discount {
+        padding: 4px;
+        border-radius: 5px;
+        background: var(--primary-color-o5);
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        font-weight: 500;
+      }
     }
 
     .info-single__product {
