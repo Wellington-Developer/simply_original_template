@@ -34,6 +34,9 @@
   gap: 12px;
   align-items: center;
 }
+.container-single__product .content-single__product .info-single__product .price h1 {
+  color: var(--primary-color-o5);
+}
 .container-single__product .content-single__product .info-single__product .price span {
   font-size: 0.85rem;
   color: var(--black-color-o4);
