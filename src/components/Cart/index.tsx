@@ -37,19 +37,12 @@ export const Cart = () => {
 
     const array = []
 
-    const info = `\n\n
-      Olá, meu nome é ${dataClient.nome}\nE gostaria de fazer o pedido abaixo:
-      \n\n
+    const info = `
+      Olá, meu nome é ${dataClient.nome} e gostaria de fazer o pedido abaixo:%0d%0a
     `
 
     const addressInfo = `
-    \n\n
-      Endereço de entrega:
-      ${addressClient.city}\n
-      ${addressClient.cep}\n
-      ${addressClient.street}\n
-      ${addressClient.number}\n
-      \n\n
+    %0d%0aEndereço de entrega: ${addressClient.city}%0d%0aCEP: ${addressClient.cep}%0d%0a${addressClient.street}%0d%0aNumero: ${addressClient.number}%0d%0a*PREÇO TOTAL: ${productPrice}*%0d%0a
     `
 
     setInfoAddress(addressInfo)
@@ -57,18 +50,7 @@ export const Cart = () => {
 
     
     for(numero; numero < infoPurchase.length; numero++) {
-      const messageProductFor = `
-      \n\n
-      ----------------------------------
-      \n*Produto*: ${infoPurchase[numero].nameProduct}
-      \n*Preço*: R$ ${infoPurchase[numero].totalPrice / infoPurchase[numero].qtd}
-      \n*Quantidade*: ${infoPurchase[numero].qtd}
-      \n*Cor*: ${infoPurchase[numero].color}
-      \n*Tamanho*: ${infoPurchase[numero].size}
-      \n*Preço Total*: R$ ${infoPurchase[numero].totalPrice}
-      ----------------------------------
-      \n\n
-      `
+      const messageProductFor = `%0d%0a----------------------------------%0d%0a*Produto*: ${infoPurchase[numero].nameProduct}%0d%0a*Preço*: R$ ${infoPurchase[numero].totalPrice / infoPurchase[numero].qtd}%0d%0a*Quantidade*: ${infoPurchase[numero].qtd}%0d%0a*Cor*: ${infoPurchase[numero].color}%0d%0a*Tamanho*: ${infoPurchase[numero].size}%0d%0a*Preço Total*: R$ ${infoPurchase[numero].totalPrice}%0d%0a----------------------------------%0d%0a`
       array.push(messageProductFor)
     }
     
@@ -148,7 +130,7 @@ export const Cart = () => {
               cart.length <= 0 ?
               (<h1>R$ 0</h1>) :
               (<div className="resume-cart">
-                <a href={`https://wa.me//556281470582?text=${infoClient}\n\n${messageProduct}\n\n${infoAddress}`}>
+                <a href={`https://wa.me//556281470582?text=${infoClient}${messageProduct}${infoAddress}`}>
                   <button onClick={messageToClient}>Finalizar pedido</button>
                 </a>
                 
