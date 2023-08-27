@@ -4,6 +4,7 @@
   overflow-x: scroll;
   overflow: hidden;
   scroll-behavior: smooth;
+  gap: 24px;
   height: 100vh;
 }
 .container-info__client h1, .container-info__client p {
@@ -29,4 +30,5 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  border: 1px solid red;
 }/*# sourceMappingURL=styles.css.map */

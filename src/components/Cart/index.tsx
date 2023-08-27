@@ -15,6 +15,11 @@ export const Cart = () => {
   const [productPrice, setProductPrice] = useState(0)
   const [discount, setDiscount] = useState();
   const [hasDiscount, setHasDiscount] = useState(0)
+  const [ dataClient, setDataClient ] = useState<any>()
+  const [ addressClient, setAddressClient ] = useState<any>()
+  const [ messageProduct, setMessageProduct ] = useState<any>([])
+  const [ infoClient, setInfoClient ] = useState<any>()
+  const [ infoAddress, setInfoAddress ] = useState<any>()
   const sumProductCart = () => {
     cart.map((productCart) => {
       soma += productCart.totalPrice
@@ -22,12 +27,55 @@ export const Cart = () => {
     })
   }
 
-  let message = []
-
   const messageToClient = () => {
+    const infoPurchase = []
+    var numero = 0;
+    
     cart.map((product) => {
-      let mess = `[*] ${product.nameProduct} - Quantidade: ${product.qtd} - Cor: ${product.color} - Tamanho: ${product.size}. Fica um total de ${product.totalPrice}`
-      message.push(mess)
+      infoPurchase.push(product)
+    })
+
+    const array = []
+
+    const info = `\n\n
+      Olá, meu nome é ${dataClient.nome}\nE gostaria de fazer o pedido abaixo:
+      \n\n
+    `
+
+    const addressInfo = `
+    \n\n
+      Endereço de entrega:
+      ${addressClient.city}\n
+      ${addressClient.cep}\n
+      ${addressClient.street}\n
+      ${addressClient.number}\n
+      \n\n
+    `
+
+    setInfoAddress(addressInfo)
+    setInfoClient(info)
+
+    
+    for(numero; numero < infoPurchase.length; numero++) {
+      const messageProductFor = `
+      \n\n
+      ----------------------------------
+      \n*Produto*: ${infoPurchase[numero].nameProduct}
+      \n*Preço*: R$ ${infoPurchase[numero].totalPrice / infoPurchase[numero].qtd}
+      \n*Quantidade*: ${infoPurchase[numero].qtd}
+      \n*Cor*: ${infoPurchase[numero].color}
+      \n*Tamanho*: ${infoPurchase[numero].size}
+      \n*Preço Total*: R$ ${infoPurchase[numero].totalPrice}
+      ----------------------------------
+      \n\n
+      `
+      array.push(messageProductFor)
+    }
+    
+    const mes = []
+    array.forEach((item) => {
+      mes.push(item)
+      setMessageProduct(mes)
     })
   }
 
@@ -40,8 +88,16 @@ export const Cart = () => {
     }
   }
 
+  const getInfoLocalStorage = () => {
+    const data = localStorage.getItem('infoClientName')
+    const address = localStorage.getItem('fullAdressClient')
+    setAddressClient(JSON.parse(address))
+    setDataClient(JSON.parse(data))
+  }
+
   useEffect(() => {
     sumProductCart()
+    getInfoLocalStorage()
   }, [cart])
 
   return (
@@ -53,6 +109,10 @@ export const Cart = () => {
         <div className="container-section__cart">
           
         <div className="left-side__cart">
+        {
+          dataClient &&
+          <h4>Olá novamente, {dataClient.nome}</h4>  
+        }
           <h2>Produtos adicionados</h2>
           <div className="product-side__cart">
             {
@@ -88,9 +148,10 @@ export const Cart = () => {
               cart.length <= 0 ?
               (<h1>R$ 0</h1>) :
               (<div className="resume-cart">
-                <a href={`https://wa.me//556281470582?text=${message}`}>
+                <a href={`https://wa.me//556281470582?text=${infoClient}\n\n${messageProduct}\n\n${infoAddress}`}>
                   <button onClick={messageToClient}>Finalizar pedido</button>
                 </a>
+                
                 <h1>R$ { (productPrice - hasDiscount)}</h1>
               </div>)
             }
