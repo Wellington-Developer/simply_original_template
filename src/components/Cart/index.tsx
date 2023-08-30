@@ -143,12 +143,8 @@ export const Cart = () => {
                 </a>
                 
                 {
-                  resumeProduct.price && resumeProduct.price > 0 ?
-                  (
+                  resumeProduct &&
                     <h1>{formatNumber.format(resumeProduct.price - hasDiscount)}</h1>
-                  ) : (
-                    ""
-                  )
                 }
               </div>)
             }
