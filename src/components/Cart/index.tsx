@@ -7,10 +7,11 @@ import { ProductCart } from './utils/ProductsCart';
 import { useContext, useEffect, useState } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
 import { Link } from 'react-router-dom';
+import { PaymentForm } from '../ProductPage/PaymentForm';
 
 export const Cart = () => {
   const userAtive = localStorage.getItem("user-active");
-  const { cart } = useContext(GlobalContext);
+  const { cart, resumeProduct } = useContext(GlobalContext);
   let soma = 0;
   const [productPrice, setProductPrice] = useState(0)
   const [discount, setDiscount] = useState();
@@ -20,6 +21,9 @@ export const Cart = () => {
   const [ messageProduct, setMessageProduct ] = useState<any>([])
   const [ infoClient, setInfoClient ] = useState<any>()
   const [ infoAddress, setInfoAddress ] = useState<any>()
+  const options = { style: 'currency', currency: 'BRL' }
+  const formatNumber = new Intl.NumberFormat('pt-BR', options)
+
   const sumProductCart = () => {
     cart.map((productCart) => {
       soma += productCart.totalPrice
@@ -42,7 +46,7 @@ export const Cart = () => {
     `
 
     const addressInfo = `
-    %0d%0aEndereço de entrega: ${addressClient.city}%0d%0aCEP: ${addressClient.cep}%0d%0a${addressClient.street}%0d%0aNumero: ${addressClient.number}%0d%0a*PREÇO TOTAL: ${productPrice}*%0d%0a
+    %0d%0aEndereço de entrega: ${addressClient.city}%0d%0aCEP: ${addressClient.cep}%0d%0a${addressClient.street}%0d%0aNumero: ${addressClient.number}%0d%0a*PREÇO TOTAL: ${productPrice}*%0d%0a*Metodo de pagemento*: ${resumeProduct.form}%0d%0a
     `
 
     setInfoAddress(addressInfo)
@@ -50,7 +54,7 @@ export const Cart = () => {
 
     
     for(numero; numero < infoPurchase.length; numero++) {
-      const messageProductFor = `%0d%0a----------------------------------%0d%0a*Produto*: ${infoPurchase[numero].nameProduct}%0d%0a*Preço*: R$ ${infoPurchase[numero].totalPrice / infoPurchase[numero].qtd}%0d%0a*Quantidade*: ${infoPurchase[numero].qtd}%0d%0a*Cor*: ${infoPurchase[numero].color}%0d%0a*Tamanho*: ${infoPurchase[numero].size}%0d%0a*Preço Total*: R$ ${infoPurchase[numero].totalPrice}%0d%0a----------------------------------%0d%0a`
+      const messageProductFor = `%0d%0a----------------------------------%0d%0a*Produto*: ${infoPurchase[numero].nameProduct}%0d%0a*Preço*: R$ ${infoPurchase[numero].totalPrice / infoPurchase[numero].qtd}%0d%0a*Quantidade*: ${infoPurchase[numero].qtd}%0d%0a*Cor*: ${infoPurchase[numero].color}%0d%0a*Tamanho*: ${infoPurchase[numero].size}%0d%0a*Preço Total*: ${formatNumber.format(resumeProduct.price)}%0d%0a${resumeProduct.desc}%0d%0a*----------------------------------%0d%0a`
       array.push(messageProductFor)
     }
     
@@ -118,12 +122,16 @@ export const Cart = () => {
               placeholder="Cupom de desconto"
               onChange={ handleChangeDiscount }
             />
-          </div>
-
           <div className="quicly-resume__cart">
             <h4>Desconto:</h4>
             <h3>R$ { hasDiscount }</h3>
           </div>
+          </div>
+
+          <div className="pay_form">
+            <PaymentForm price={productPrice - hasDiscount}/>
+          </div>
+
 
           <div className="quicly-resume__cart">
             {
@@ -134,7 +142,14 @@ export const Cart = () => {
                   <button onClick={messageToClient}>Finalizar pedido</button>
                 </a>
                 
-                <h1>R$ { (productPrice - hasDiscount)}</h1>
+                {
+                  resumeProduct.price > 0 ?
+                  (
+                    <h1>{formatNumber.format(resumeProduct.price - hasDiscount)}</h1>
+                  ) : (
+                    ""
+                  )
+                }
               </div>)
             }
           </div>

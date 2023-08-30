@@ -23,6 +23,7 @@ import CardIcon from '../../assets/card-2.svg';
 import Cart from '../../assets/cart.svg';
 import { ProductRow } from '../ProductRow';
 import { GlobalContext } from '../context/GlobalContext';
+import { ModalInstallments } from './ModalInstallments';
 
 export const ProductPage = () => {
   const colorProduct = [
@@ -41,6 +42,8 @@ export const ProductPage = () => {
 
   const images = ["https://loja.simply.app.br/arquivos_produtos/159/71468/cde93a9826ac6a605d98acbfe0faed3f20230407234705.jpeg", "https://loja.simply.app.br/arquivos_produtos/159/71468/cde93a9826ac6a605d98acbfe0faed3f20230407234705.jpeg"]
 
+  const options = { style: 'currency', currency: 'BRL' }
+  const formatNumber = new Intl.NumberFormat('pt-BR', options)
   const refferenceImage = useRef(null)
   const refWidth = useRef(null)
   const refferenceController = useRef(null)
@@ -49,8 +52,13 @@ export const ProductPage = () => {
   const [ product, setProduct ] = useState<any>()
   const [ size, setSize ] = useState<any>(sizeProduct[0].name)
   const [ color, setColor ] = useState<any>(colorProduct[0].name)
+  const [ openModal, setOpenModal ] = useState<any>(false)
   const { addProductToCart } = useContext(GlobalContext)
   
+  const handleOpenModal = () => {
+    setOpenModal(!openModal)
+  }
+
   const handleScrollLeft = () => {
     refWidth.current.scrollLeft -= refWidth.current.offsetWidth;
   }
@@ -161,18 +169,23 @@ export const ProductPage = () => {
 
               <div className="buy-product__page">
                 <div className="price-product__page">
-                  <h1>R$ {product.price * contProduct - 20}</h1>
-                  <p>R$ {product.price * contProduct }</p>
+                  <h1>{formatNumber.format(product.price * contProduct - 5)}</h1>
+                  <p>{formatNumber.format(product.price * contProduct)}</p>
                 </div>
 
                 <div className="discount-product__page">
-                  <p>Economia de R$ 20,00</p>
+                  <p>Economia de R$ 5,00</p>
                 </div>
 
                 <div className="freight">
                   <div className="item-frete">
                     <img src={CardIcon} alt="frete.description" />
-                    <h1>10x sem juros no cartão de crédito.</h1>
+                    <h1>10x sem juros no cartão de crédito.
+                      <h3 onClick={ handleOpenModal }>Ver parcelas</h3>
+                      {
+                        openModal && <ModalInstallments price={ product.price * contProduct } handleOpen={ handleOpenModal }/>
+                      }
+                    </h1>
                   </div>
                   <div className="item-frete">
                     <img src={ PaymentPix } alt="frete.description" />

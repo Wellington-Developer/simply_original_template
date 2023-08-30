@@ -176,6 +176,17 @@
           gap: 12px;
           align-items: center;
           margin-bottom: 40px;
+
+          h1 {
+            display: inline-block;
+            flex-direction: column;
+
+            h3 {
+              display: inline-block;
+              font-size: 0.85rem;
+              cursor: pointer;
+            }
+          }
         }
       }
 

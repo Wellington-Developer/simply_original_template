@@ -151,6 +151,15 @@
   align-items: center;
   margin-bottom: 40px;
 }
+.container-product__page .content-product__page .rightside-product__page .freight .item-frete h1 {
+  display: inline-block;
+  flex-direction: column;
+}
+.container-product__page .content-product__page .rightside-product__page .freight .item-frete h1 h3 {
+  display: inline-block;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
 .container-product__page .content-product__page .rightside-product__page .select-product__page {
   display: flex;
   flex-direction: column;

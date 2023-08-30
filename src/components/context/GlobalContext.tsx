@@ -9,6 +9,11 @@ export const GlobalStorage = ({ children }) => {
   const [ productsCategory, setProductCategory ] = useState()
   const [ dataProduct, setDataProduct ] = useState()
   const [ termsUserHasBeenAccepted, setTermsUserHasBeenAccepted ] = useState<any>()
+  const [ resumeProduct, setResumeProduct ] = useState<any>();
+
+  const handleResumeProduct = (i) => {
+    setResumeProduct(i)
+  }
 
 
   const getAllProducts = () => {
@@ -56,6 +61,8 @@ export const GlobalStorage = ({ children }) => {
       JSON.stringify(copyProductsCart)
     )
 
+    setShowPopup(false)
+
   }
 
   const removeProductToCart = (id, size, color, price) => {
@@ -98,6 +105,6 @@ export const GlobalStorage = ({ children }) => {
   }, [])
 
   return (
-    <GlobalContext.Provider value={ { allProducts, allCategories, cart, getProductsPerCategory, productsCategory, showPopup, setNewProduct, dataProduct, termsUserHasBeenAccepted, addProductToCart, removeProductToCart } }>{children}</GlobalContext.Provider>
+    <GlobalContext.Provider value={ { allProducts, allCategories, cart, getProductsPerCategory, productsCategory, showPopup, setNewProduct, dataProduct, termsUserHasBeenAccepted, addProductToCart, removeProductToCart, handleResumeProduct, resumeProduct } }>{children}</GlobalContext.Provider>
   )
 }

@@ -20,6 +20,7 @@ import { MenuToggle } from './utils/MenuToggle';
 import { Link } from 'react-router-dom';
 import { InputSearch } from '../InputSerch';
 import { GlobalContext } from '../context/GlobalContext';
+import { CallToActionTop } from './utils/CallToActionTop';
 
 
 function useMenuAnimation(isOpen: boolean) {
@@ -81,6 +82,7 @@ export const Header = () => {
 
     return (
         <>
+        <CallToActionTop />
           <div className="principal-container__header">
             <div className="left-side__header">
                 <div ref={scope}>

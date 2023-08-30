@@ -1,0 +1,38 @@
+.container-modal__installments {
+  position: fixed;
+  width: 80%;
+  max-width: 600px;
+  top: 0;
+  border: 1px solid var(--black-color-o2);
+  background-color: white;
+  border-radius: 5px;
+  z-index: 999;
+  
+  h3 {
+    justify-self: end;
+    padding: 12px 24px;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+
+  h3:hover {
+    color: var(--black-color-o5);
+  }
+
+  .line-parcela {
+    display: flex;
+    border: 1px solid var(--black-color-o2);
+    justify-content: space-between;
+    padding: 10px;
+
+    h1 {
+      flex: 1;
+    }
+  }
+
+  h3 {
+    color: black;
+  }
+}
