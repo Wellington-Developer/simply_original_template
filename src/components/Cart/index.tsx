@@ -46,7 +46,7 @@ export const Cart = () => {
     `
 
     const addressInfo = `
-    %0d%0aEndereço de entrega: ${addressClient.city}%0d%0aCEP: ${addressClient.cep}%0d%0a${addressClient.street}%0d%0aNumero: ${addressClient.number}%0d%0a*PREÇO TOTAL: ${productPrice}*%0d%0a*Metodo de pagamento*: ${resumeProduct.form}%0d%0a
+    %0d%0aEndereço de entrega: ${addressClient.city}%0d%0aCEP: ${addressClient.cep}%0d%0a${addressClient.street}%0d%0aNumero: ${addressClient.number}%0d%0a*PREÇO TOTAL: ${productPrice}*%0d%0a*Metodo de pagamento*: ${resumeProduct.form}%0d%0a${resumeProduct.desc}%0d%0a
     `
 
     setInfoAddress(addressInfo)
@@ -54,7 +54,7 @@ export const Cart = () => {
 
     
     for(numero; numero < infoPurchase.length; numero++) {
-      const messageProductFor = `%0d%0a----------------------------------%0d%0a*Produto*: ${infoPurchase[numero].nameProduct}%0d%0a*Preço*: R$ ${infoPurchase[numero].totalPrice / infoPurchase[numero].qtd}%0d%0a*Quantidade*: ${infoPurchase[numero].qtd}%0d%0a*Cor*: ${infoPurchase[numero].color}%0d%0a*Tamanho*: ${infoPurchase[numero].size}%0d%0a*Preço Total*: ${formatNumber.format(resumeProduct.price)}%0d%0a${resumeProduct.desc}%0d%0a*----------------------------------%0d%0a`
+      const messageProductFor = `%0d%0a----------------------------------%0d%0a*Produto*: ${infoPurchase[numero].nameProduct}%0d%0a*Preço*: R$ ${infoPurchase[numero].totalPrice / infoPurchase[numero].qtd}%0d%0a*Quantidade*: ${infoPurchase[numero].qtd}%0d%0a*Cor*: ${infoPurchase[numero].color}%0d%0a*Tamanho*: ${infoPurchase[numero].size}%0d%0a*Preço Total*: ${formatNumber.format(resumeProduct.price)}%0d%0a*----------------------------------%0d%0a`
       array.push(messageProductFor)
     }
     
@@ -143,7 +143,7 @@ export const Cart = () => {
                 </a>
                 
                 {
-                  resumeProduct.price > 0 ?
+                  resumeProduct.price && resumeProduct.price > 0 ?
                   (
                     <h1>{formatNumber.format(resumeProduct.price - hasDiscount)}</h1>
                   ) : (
