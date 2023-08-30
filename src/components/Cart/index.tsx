@@ -46,7 +46,7 @@ export const Cart = () => {
     `
 
     const addressInfo = `
-    %0d%0aEndereço de entrega: ${addressClient.city}%0d%0aCEP: ${addressClient.cep}%0d%0a${addressClient.street}%0d%0aNumero: ${addressClient.number}%0d%0a*PREÇO TOTAL: ${productPrice}*%0d%0a*Metodo de pagemento*: ${resumeProduct.form}%0d%0a
+    %0d%0aEndereço de entrega: ${addressClient.city}%0d%0aCEP: ${addressClient.cep}%0d%0a${addressClient.street}%0d%0aNumero: ${addressClient.number}%0d%0a*PREÇO TOTAL: ${productPrice}*%0d%0a*Metodo de pagamento*: ${resumeProduct.form}%0d%0a
     `
 
     setInfoAddress(addressInfo)

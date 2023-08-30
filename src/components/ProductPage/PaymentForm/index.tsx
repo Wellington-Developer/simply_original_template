@@ -37,7 +37,7 @@ export const PaymentForm = ({ price }) => {
       description: 'Sem juros',
       price: `${price}`,
       qtdPrice: `${price / parcela}`,
-      desc: `${parcela}x de ${price / parcela}`
+      desc: `${parcela}x de ${formatNumber.format(price / parcela)}`
     },
     {
       form: 'Dinheiro',
