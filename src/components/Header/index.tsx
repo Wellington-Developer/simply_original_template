@@ -116,9 +116,11 @@ export const Header = () => {
                 <Link to="/cart">
                   <img src={ CartHeader } />
                 </Link>
-                <div className="contador">
-                  {cart.length}
-                </div>
+                <Link to="/cart">
+                  <div className="contador">
+                    {cart.length}
+                  </div>
+                </Link>
               </div>
             </div>
         </div>

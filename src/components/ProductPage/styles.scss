@@ -104,6 +104,7 @@
           display: flex;
           gap: 12px;
           align-items: center;
+          display: block;
 
           p {
             color: var(--black-color-o5);
@@ -116,6 +117,7 @@
           a {
             color: black;
             font-weight: 500;
+            font-size: 0.8rem;
           }
         }
 
@@ -273,6 +275,7 @@
 
 #info-desc {
   padding: 200px 0 0 0;
+  font-size: 1rem;
 }
 
 .container-info__products {
@@ -280,16 +283,17 @@
   overflow-x: scroll;
   overflow-x: hidden;
   scroll-behavior: smooth;
-
+  
   h3 {
     font-size: 1rem;
     font-weight: 500;
     color: var(--black-color-o5);
     max-width: 800px;
   }
-
+  
   .left-side,
   .right-side {
+    padding: 0 20px;
     width: 100%;
     flex-shrink: 0;
 

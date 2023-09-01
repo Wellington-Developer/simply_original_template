@@ -30,10 +30,10 @@ export const PaymentForm = ({ price }) => {
       form: 'Pix',
       description: '10% de desconto',
       price: `${(price - (10 * price) / 100)}`,
-      desc: `Desconto de 10% aplicado`
+      desc: `- 10% de desconto aplicado`
     },
     {
-      form: 'Cartão de crédito',
+      form: 'Crédito',
       description: 'Sem juros',
       price: `${price}`,
       qtdPrice: `${price / parcela}`,
@@ -46,7 +46,7 @@ export const PaymentForm = ({ price }) => {
       desc: ``
     },
     {
-      form: 'Cartão de débito',
+      form: 'Débito',
       description: '',
       price: `${price}`,
       desc: ``
@@ -77,11 +77,10 @@ export const PaymentForm = ({ price }) => {
       }
 
       {
-        paymentForm[indexForm].form == "Cartão de crédito" ?
+        paymentForm[indexForm].form == "Crédito" ?
           (<div className="selected-method">
-            <h1>Metodo selecionado:</h1>
+            <h1>Qual quantidade de vezes que quer parcelar?</h1>
             <div className="qtd">
-              Quantidade de vezes a parcelar:
               <select onChange={e => setParcela(e.target.value)}>
                 {
                   parcelaQtd.map((item, index) => (
@@ -90,15 +89,15 @@ export const PaymentForm = ({ price }) => {
                 }
               </select>
             </div>
-            <h3>{paymentForm[indexForm].form}</h3>
-            <p>Valor: {parcela}x de {formatNumber.format(Number(paymentForm[indexForm].qtdPrice))}</p>
+            <p>Total de parcelas: <h1>{parcela}x de {formatNumber.format(Number(paymentForm[indexForm].qtdPrice))} no cartão de {paymentForm[indexForm].form}</h1></p>
+            <h3></h3>
           </div>) 
           : 
           (
             <div className="selected-method">
               <h1>Metodo selecionado:</h1>
               <h3>{paymentForm[indexForm].form}</h3>
-              <p>Valor: {formatNumber.format(Number(paymentForm[indexForm].price))}</p>
+              <p>Valor: {formatNumber.format(Number(paymentForm[indexForm].price))} {paymentForm[indexForm].desc && paymentForm[indexForm].desc}</p>
             </div>
           )
       }

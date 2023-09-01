@@ -94,7 +94,6 @@
   right: 22px;
   height: 16px;
   width: 16px;
-  border-radius: 5px;
   font-size: 12px;
   display: flex;
   font-weight: bold;
@@ -102,4 +101,10 @@
   justify-content: center;
   background: var(--primary-color-o5);
   color: white;
+}
+
+@media screen and (max-width: 800px) {
+  .principal-container__header .right-icon__header {
+    right: -15px;
+  }
 }/*# sourceMappingURL=styles.css.map */

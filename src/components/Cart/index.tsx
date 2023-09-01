@@ -23,6 +23,7 @@ export const Cart = () => {
   const [ infoAddress, setInfoAddress ] = useState<any>()
   const options = { style: 'currency', currency: 'BRL' }
   const formatNumber = new Intl.NumberFormat('pt-BR', options)
+  const [ modalCupom, setModalCupom ] = useState(false)
 
   const sumProductCart = () => {
     cart.map((productCart) => {
@@ -93,45 +94,58 @@ export const Cart = () => {
         </Link>
       {userAtive ? (
         <div className="container-section__cart">
-          
-        <div className="left-side__cart">
-        {
-          dataClient &&
-          <h4>Olá novamente, {dataClient.nome}</h4>  
-        }
-          <h2>Produtos adicionados</h2>
-          <div className="product-side__cart">
-            {
-              cart.length > 0 ?
-                (
-                  cart.map((product, index) => {
-                    return <ProductCart id={ product.id } qtd={ product.qtd } size={ product.size } color={ product.color } key={index}/>
-                  })
-                ) : (
-                  <p>Adicione produtos ao carrinho.</p>
-                )
-            }
-          </div>
-        </div>
-
-        <div className="right-side__cart">
-          <h2>Resumo do pedido</h2>
-          <div className="product-discount__cart">
+          {
+            modalCupom && <div className="product-discount__cart">
+            
             <input
               type="text"
               placeholder="Cupom de desconto"
               onChange={ handleChangeDiscount }
             />
-          <div className="quicly-resume__cart">
-            <h4>Desconto:</h4>
-            <h3>R$ { hasDiscount }</h3>
-          </div>
-          </div>
 
+            <button onClick={ () => setModalCupom(false) }>Confirmar</button>
+          </div>
+          }
+          
+        <div className="left-side__cart">
+        {
+          dataClient &&
+          <>
+          <p>Estamos quase lá, {dataClient.nome}</p>  
+          <h4>Me diga, como quer pagar?</h4>
+          </>
+        }
           <div className="pay_form">
             <PaymentForm price={productPrice - hasDiscount}/>
           </div>
+        </div>
 
+        <div className="right-side__cart">
+          <div className="product-side__cart">
+            {
+              cart.length > 0 ?
+              (
+                cart.map((product, index) => {
+                    return <ProductCart id={ product.id } qtd={ product.qtd } size={ product.size } color={ product.color } key={index}/>
+                  })
+                ) : (
+                  <p>Adicione produtos ao carrinho.</p>
+                  )
+                }
+          </div>
+
+          <div className="quicly-resume__cart carted">
+            {
+              !hasDiscount && <p onClick={ () => setModalCupom(true) }>Inserir cupom de desconto</p>
+            }
+
+            {
+              hasDiscount !== 0 && <>
+                <p>Desconto aplicado:</p>
+                <h3>R$ { hasDiscount }</h3>
+              </>
+            }
+          </div>
 
           <div className="quicly-resume__cart">
             {
@@ -149,6 +163,7 @@ export const Cart = () => {
               </div>)
             }
           </div>
+
         </div>
       </div>
     ) : (

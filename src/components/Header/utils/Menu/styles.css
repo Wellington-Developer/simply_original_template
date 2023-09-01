@@ -15,6 +15,7 @@
   transform: translateX(-100%);
   will-change: transform;
   z-index: 998;
+  transition: all 0.2s ease-in;
 }
 .menu ul {
   display: flex;
@@ -29,7 +30,7 @@
 .menu li {
   color: var(--black-color-o6);
   display: block;
-  transform-origin: -20px 50%;
+  transform-origin: -10px 50%;
   font-weight: bold;
   font-size: 1rem;
   will-change: transform, opacity, filter;
@@ -59,7 +60,7 @@
   flex-direction: column;
   gap: 12px;
   animation-name: animateSubcategory;
-  animation-duration: 1s;
+  animation-duration: 0.1s;
 }
 .menu .subcategories li {
   cursor: pointer;

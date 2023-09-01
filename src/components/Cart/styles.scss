@@ -4,10 +4,42 @@
 
 .container-section__cart {
   display: flex;
-  gap: 24px;
+  gap: 48px;
   padding: 20px;
   padding-top: 200px;
   background-color: white;
+  position: relative;
+
+  .product-discount__cart {
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    border-radius: 5px;
+    background: white;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    button {
+      padding: 12px 24px;
+      border: none;
+      background: var(--black-color-o2);
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    input {
+      max-width: 500px;
+    }
+  }
 
   .left-side__cart, .right-side__cart {
     width: 100%;
@@ -15,33 +47,55 @@
   }
 
   .left-side__cart {
-    h2 {
+    h4 {
       padding-bottom: 48px;
-      font-size: 2rem;
-      font-weight: 500;
+      font-size: 1.5rem;
+      font-weight: 600;
     }
+
+    p {
+      color: var(--black-color-o5);
+    }
+    
 
     .product-side__cart {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 24px;
+
     }
   }
+  
+  .quicly-resume__cart.carted {
+    margin-top: 64px;
 
+    p {
+      cursor: pointer;
+    }
+  }
+  
   .right-side__cart {
-    h2 {
-      margin-bottom: 64px;
+    display: flex;
+    flex-direction: column;
+
+    input {
+      margin: 64px 0 32px 0;
     }
 
+    h2 {
+      margin-bottom: 24px;
+    }
+    
     .quicly-resume__cart {
       display: flex;
       width: 100%;
       justify-content: space-between;
-      margin-bottom: 24px;
-
+      margin-bottom: 0px;
+      
       .resume-cart {
         width: 100%;
         display: flex;
+        margin-top: 32px;
 
         h1, a {
           flex: 1;

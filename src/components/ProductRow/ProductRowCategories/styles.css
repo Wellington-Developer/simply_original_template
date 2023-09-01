@@ -12,4 +12,10 @@
 .product-category__row .info-category a {
   font-weight: 500;
   color: var(--primary-color-o5);
+}
+
+@media screen and (max-width: 530px) {
+  .product-category__row .info-category {
+    justify-content: space-between;
+  }
 }/*# sourceMappingURL=styles.css.map */

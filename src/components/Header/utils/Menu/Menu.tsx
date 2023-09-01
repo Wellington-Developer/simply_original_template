@@ -3,6 +3,7 @@ import { useContext, useState } from 'react';
 import './styles.css'
 import { GlobalContext } from '../../../context/GlobalContext';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 export const Menu = () => {
   const global = useContext(GlobalContext);
@@ -17,8 +18,10 @@ export const Menu = () => {
   }
 
   return (
-    <nav className="menu">
-      <div className="list">
+    <motion.nav className="menu"
+    transition={{ duration: 0.1 }}>
+      <motion.div className="list"
+      transition={{ duration: 0.1 }}>
         {
           global.allCategories && <>
             <ul className="list">
@@ -40,7 +43,7 @@ export const Menu = () => {
             <li>Subcategoria 3</li>
           </div>
         }
-      </div>
-    </nav>
+      </motion.div>
+    </motion.nav>
   )
 }

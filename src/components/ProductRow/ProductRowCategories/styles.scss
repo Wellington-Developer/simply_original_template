@@ -16,3 +16,11 @@
     }
   }
 }
+
+@media screen and (max-width: 530px) {
+  .product-category__row {
+    .info-category {
+      justify-content: space-between;
+    }
+  }
+}
