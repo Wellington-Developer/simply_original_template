@@ -1,7 +1,6 @@
 // Styles
 import { Link } from 'react-router-dom';
 import { Footer } from '../Footer';
-import { BiHomeAlt } from 'react-icons/bi';
 import { GlobalContext } from '../context/GlobalContext';
 import { ProductInput } from './ProductInput';
 import './styles.css';
@@ -26,7 +25,7 @@ export const InputSearch = () => {
     <>
         <div className="container-input__search container">
           <Link to="/">
-            <h1><BiHomeAlt /> Voltar para Home</h1>
+            <h1>← Voltar para Home</h1>
           </Link>
           <div className="content-input__seach">
             <form>

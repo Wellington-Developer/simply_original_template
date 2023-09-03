@@ -14,13 +14,13 @@ export const InfoClient = () => {
 
   const handleNextStep = () => {
     if(refferenceScreen.current != null) {
-      refferenceScreen.current.scrollLeft += refferenceScreen.current.offsetWidth;
+      refferenceScreen.current.scrollLeft += refferenceScreen.current.offsetWidth + 12;
     }
   }
 
   const handlePrevStep = () => {
     if(refferenceScreen.current != null) {
-      refferenceScreen.current.scrollLeft -= refferenceScreen.current.offsetWidth;
+      refferenceScreen.current.scrollLeft -= refferenceScreen.current.offsetWidth + 12;
     }
   }
 

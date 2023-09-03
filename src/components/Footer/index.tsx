@@ -173,7 +173,7 @@ export const Footer = () => {
                             <div>Todos os direitos reservados.</div>
                         )
                 }
-                <img src={logoSimply} alt="logotipo simply - todos os direitos reservados" />
+                <a href="https://simply.app.br"><img src={logoSimply} alt="logotipo simply - todos os direitos reservados" /></a>
             </div>
         </div>
     )

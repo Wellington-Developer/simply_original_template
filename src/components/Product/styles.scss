@@ -21,8 +21,13 @@
       border-radius: 5px;
 
       .discount {
-        padding: 4px;
-        border-radius: 5px;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        border-radius: 100%;
         background: var(--primary-color-o5);
         position: absolute;
         top: 12px;
@@ -85,6 +90,7 @@
         backdrop-filter: blur(5px);
         -webkit-backdrop-filter: blur(5px);
         border: 1px solid rgba(255, 255, 255, 0.3);
+        font-size: 1.2rem;
 
         font-weight: 600;
         text-transform: uppercase;

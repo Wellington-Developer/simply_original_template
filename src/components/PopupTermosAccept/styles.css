@@ -9,8 +9,8 @@
   background: var(--black-color-o1);
   position: fixed;
   bottom: 30px;
-  left: 60px;
-  right: 60px;
+  left: 30px;
+  right: 30px;
   max-width: 1200px;
   z-index: 999999999999;
   display: flex;
@@ -19,7 +19,7 @@
 .section-popup h1 {
   margin-bottom: 24px;
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.7rem;
   font-weight: 500;
   max-width: 100%;
 }

@@ -157,7 +157,9 @@ export const ProductPage = () => {
                     <FaStar />
                     <FaStar />
                   </div>
-                  <p>(1 avaliação)</p>
+                  <a href="#avaliacao">
+                    <p>(1 avaliação)</p>
+                  </a>
                 </div>
 
                 <div className="description-product__page">
@@ -174,7 +176,7 @@ export const ProductPage = () => {
                 </div>
 
                 <div className="discount-product__page">
-                  <p>Economia de R$ 5,00</p>
+                  <p>Você economiza R$ 5,00</p>
                 </div>
 
                 <div className="freight">
@@ -189,7 +191,7 @@ export const ProductPage = () => {
                   </div>
                   <div className="item-frete">
                     <img src={ PaymentPix } alt="frete.description" />
-                    <h1>10% de desconto para pagamento via PIX</h1>
+                    <h1>10% de desconto ({formatNumber.format(product.price - (10 * product.price / 100))}) no pix!</h1>
                   </div>
                 </div>
 
@@ -236,16 +238,16 @@ export const ProductPage = () => {
             </div>
           </div>
         </div>
-        <div className="container" id="info-desc">
+        <div className="container">
         <div className="container-info__products" ref={refWidth}>
-                <div className="left-side">
+                <div className="left-side" id="info-desc">
                   <div className="title" >
                     <h1>Descrição</h1>
                     <p onClick={handleScrollRight}>Ver avaliações</p>
                   </div>
                   <h3>{product.description}</h3>
                 </div>
-                <div className="right-side">
+                <div className="right-side" id="avaliacao">
                   <div className="title">
                     <h1>Avaliações</h1>
                     <p onClick={handleScrollLeft}>Ver descrição</p>
@@ -258,7 +260,7 @@ export const ProductPage = () => {
         </div>
 
         <div className='container relational-products'>
-          <h1>Você também pode gostar de:</h1>
+          <h2>Você também pode gostar:</h2>
           <ProductRow category="men's clothing"/>
         </div>
           </>

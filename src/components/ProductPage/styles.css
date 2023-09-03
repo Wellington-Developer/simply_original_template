@@ -76,6 +76,9 @@
   align-items: center;
   margin-bottom: 12px;
 }
+.container-product__page .content-product__page .rightside-product__page .info-product__page .evaluation a {
+  color: black;
+}
 .container-product__page .content-product__page .rightside-product__page .info-product__page .evaluation .icons-star {
   display: flex;
   gap: 4px;
@@ -205,7 +208,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2px;
+}
+.container-product__page .content-product__page .rightside-product__page .buttonbuy-product__page #button-wpp svg {
+  max-width: 24px;
+  max-height: 24px;
 }
 .container-product__page .content-product__page .rightside-product__page .buttonbuy-product__page button {
   width: 100%;
@@ -216,10 +222,12 @@
   color: white;
   cursor: pointer;
   font-weight: 600;
+  font-size: 0.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
+  text-transform: uppercase;
 }
 .container-product__page .content-product__page .rightside-product__page .buttonbuy-product__page button img {
   max-width: 24px;
@@ -230,7 +238,6 @@
 }
 
 #info-desc {
-  padding: 200px 0 0 0;
   font-size: 1rem;
 }
 
@@ -248,12 +255,12 @@
 }
 .container-info__products .left-side,
 .container-info__products .right-side {
-  padding: 0 20px;
   width: 100%;
   flex-shrink: 0;
 }
 .container-info__products .left-side .title,
 .container-info__products .right-side .title {
+  margin-top: 240px;
   padding-bottom: 24px;
   display: flex;
   gap: 12px;
@@ -284,8 +291,10 @@
   border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 12px;
 }
+.relational-products h2 {
+  padding-bottom: 24px;
+}
 .relational-products h1 {
-  padding: 24px 0;
   font-weight: 600;
   font-size: 1.25rem;
 }

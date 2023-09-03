@@ -12,13 +12,6 @@ export const PoliticaPrivacidade = () => {
       <Header />
         <div>
         <main>
-          <div className="titulo-bg">
-            <div className="titulo container">
-              <p className="font-2-l-b cor-5"></p>
-              <h1 className="font-1-xxl cor-0">Política de Privacidade<span className="cor-p1">.</span></h1>
-            </div>
-          </div>
-
           <div className="termos font-2-s cor-10 container">
             <h2 className="font-1-l cor-11">Política de Privacidade</h2>
             <p>A sua privacidade é importante para nós. É política do <span id="info">{`${cnpjData.nomeLoja} - ${cnpjData.cnpj}`}</span> Vendas sujeitas a análise e confirmação de dados.: respeitar a sua privacidade em relação a qualquer informação que possamos coletar em nosso site, e outros sites que possuímos e operamos.</p>

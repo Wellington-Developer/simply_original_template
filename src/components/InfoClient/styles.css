@@ -4,7 +4,7 @@
   overflow-x: scroll;
   overflow: hidden;
   scroll-behavior: smooth;
-  gap: 24px;
+  gap: 48px;
   height: 100vh;
 }
 .container-info__client h1, .container-info__client p {

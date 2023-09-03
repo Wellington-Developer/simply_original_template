@@ -8,6 +8,7 @@ import { useContext, useEffect, useState } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
 import { Link } from 'react-router-dom';
 import { PaymentForm } from '../ProductPage/PaymentForm';
+import { BsFillCartXFill } from 'react-icons/bs'
 
 export const Cart = () => {
   const userAtive = localStorage.getItem("user-active");
@@ -88,7 +89,9 @@ export const Cart = () => {
   }, [cart])
 
   return (
-    <div className="container">
+    <>
+      {
+        cart.length > 0 ? (<div className="container">
         <Link to="/">
           <span className="home">← Voltar para home</span>
         </Link>
@@ -169,6 +172,22 @@ export const Cart = () => {
     ) : (
       <InfoClient />
     )}
-    </div>
+    </div>) :
+        (
+          <div className="until-cart">
+            <div className="mid-until__cart">
+              <Link to="/">
+                <p>← Voltar para o inicio</p>
+
+                <div className="info-until__cart">
+                  <h1>Seu carrinho está vazio 🥺</h1>
+                  <BsFillCartXFill />
+                </div>
+              </Link>
+            </div>
+          </div>
+        )
+      }
+    </>
   )
 }

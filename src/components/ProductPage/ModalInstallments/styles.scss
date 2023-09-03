@@ -1,12 +1,13 @@
 .container-modal__installments {
   position: fixed;
-  width: 80%;
-  max-width: 600px;
+  width: 100%;
   top: 0;
+  left: 0;
+  right: 0;
   border: 1px solid var(--black-color-o2);
   background-color: white;
   border-radius: 5px;
-  z-index: 999;
+  z-index: 9999999999999999999999999999;
   
   h3 {
     justify-self: end;

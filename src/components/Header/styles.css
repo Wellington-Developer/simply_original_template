@@ -94,6 +94,7 @@
   right: 22px;
   height: 16px;
   width: 16px;
+  border-radius: 100%;
   font-size: 12px;
   display: flex;
   font-weight: bold;
