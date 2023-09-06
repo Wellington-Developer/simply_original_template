@@ -15,7 +15,6 @@ import { Link } from 'react-router-dom';
 export const ProductRowCategories = () => {
   const { allCategories } = useContext(GlobalContext);
   const [ productsLocal, setProductsLocal ] = useState<any>()
-  const [ loading, setLoading ] = useState<any>()
 
   const fetchLocalStorageProducts = () => {
     const localStorageProducts = JSON.parse(localStorage.getItem("produtos"));
