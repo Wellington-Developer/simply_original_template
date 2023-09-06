@@ -1,3 +1,9 @@
+.box {
+  border: 1px solid red;
+  width: 100px;
+  height: 100px;
+}
+
 .container-single__product {
   width: 100%;
   min-width: 260px;

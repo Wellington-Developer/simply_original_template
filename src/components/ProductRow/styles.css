@@ -44,6 +44,10 @@
   display: flex;
   gap: 24px;
 }
+.container-products__row .product-container__row .product-content__row .skeletons {
+  display: flex;
+  gap: 24px;
+}
 
 @media screen and (max-width: 530px) {
   .container-products__row .button {

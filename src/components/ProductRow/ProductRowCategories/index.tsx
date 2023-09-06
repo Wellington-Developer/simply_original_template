@@ -15,6 +15,7 @@ import { Link } from 'react-router-dom';
 export const ProductRowCategories = () => {
   const { allCategories } = useContext(GlobalContext);
   const [ productsLocal, setProductsLocal ] = useState<any>()
+  const [ loading, setLoading ] = useState<any>()
 
   const fetchLocalStorageProducts = () => {
     const localStorageProducts = JSON.parse(localStorage.getItem("produtos"));
@@ -31,13 +32,24 @@ export const ProductRowCategories = () => {
       <div className="products-new">
         {
           productsLocal && productsLocal.map((item, index) => {
-            return <Product image={item.image} title={item.title} price={item.price} id={index}/>
+            return <Product image={item.image} title={item.title} price={item.price} id={index} />
           })
         }
       </div>
       {
-        allCategories &&
-        allCategories.map((category, index) => {
+        allCategories.length == 0 ?
+        (
+          <div className="product-category__row">
+            <div className="info-category">
+              <h1>Carregando Categorias!</h1>
+            </div>
+            <div className="product-content__row">
+              <ProductRow category="loading"/>
+            </div>
+          </div>
+        )
+        :
+        (allCategories.map((category, index) => {
           return <div className="product-category__row" key={index}>
             <div className="info-category">
               <h1>{category}</h1>
@@ -49,7 +61,7 @@ export const ProductRowCategories = () => {
               <ProductRow category={category}/>
             </div>
           </div>
-        })
+        }))
       }
     </>
   )

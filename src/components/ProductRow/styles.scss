@@ -46,6 +46,11 @@
     .product-content__row {
       display: flex;
       gap: 24px;
+
+      .skeletons {
+        display: flex;
+        gap: 24px;
+      }
     }
   }
 }

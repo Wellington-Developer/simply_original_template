@@ -18,7 +18,7 @@ type IProduct = {
   image: string,
   title: string,
   price: number,
-  id?: number
+  id?: number,
 }
 
 export const Product = ({ title, price, image, id }: IProduct) => {
@@ -29,6 +29,7 @@ export const Product = ({ title, price, image, id }: IProduct) => {
   const formatNumber = new Intl.NumberFormat('pt-BR', options)
 
   return (
+    <>
     <div className="container-single__product" id={image} >
       <Popup message="Produto adicionado ao carrinho!" show={showPopup} />
       <div className="content-single__product">
@@ -59,5 +60,6 @@ export const Product = ({ title, price, image, id }: IProduct) => {
         </div>
       </div>
     </div>
+    </>
   )
 }
