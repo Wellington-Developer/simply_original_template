@@ -9,6 +9,7 @@ import { GlobalContext } from '../context/GlobalContext';
 import { Link } from 'react-router-dom';
 import { PaymentForm } from '../ProductPage/PaymentForm';
 import { BsFillCartXFill } from 'react-icons/bs'
+import { useNavigate } from 'react-router-dom';
 
 export const Cart = () => {
   const userAtive = localStorage.getItem("user-active");
@@ -25,6 +26,11 @@ export const Cart = () => {
   const options = { style: 'currency', currency: 'BRL' }
   const formatNumber = new Intl.NumberFormat('pt-BR', options)
   const [ modalCupom, setModalCupom ] = useState(false)
+  const history = useNavigate();
+
+  const backToOtherRoute = () => {
+    history(-1);
+  }
 
   const sumProductCart = () => {
     cart.map((productCart) => {
@@ -176,14 +182,12 @@ export const Cart = () => {
         (
           <div className="until-cart">
             <div className="mid-until__cart">
-              <Link to="/">
-                <p>← Voltar para o inicio</p>
+                <p onClick={backToOtherRoute}>← Voltar para pagina anterior</p>
 
                 <div className="info-until__cart">
                   <h1>Seu carrinho está vazio 🥺</h1>
                   <BsFillCartXFill />
                 </div>
-              </Link>
             </div>
           </div>
         )

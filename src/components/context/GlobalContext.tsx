@@ -61,7 +61,9 @@ export const GlobalStorage = ({ children }) => {
       JSON.stringify(copyProductsCart)
     )
 
-    setShowPopup(false)
+    setTimeout(() => {
+      setShowPopup(false)
+    }, 2000);
 
   }
 

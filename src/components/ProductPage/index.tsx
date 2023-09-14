@@ -25,6 +25,7 @@ import { ProductRow } from '../ProductRow';
 import { GlobalContext } from '../context/GlobalContext';
 import { ModalInstallments } from './ModalInstallments';
 import { Skeleton } from '@mui/material';
+import { Popup } from '../Popup';
 
 export const ProductPage = () => {
   const colorProduct = [
@@ -54,7 +55,7 @@ export const ProductPage = () => {
   const [size, setSize] = useState<any>(sizeProduct[0].name)
   const [color, setColor] = useState<any>(colorProduct[0].name)
   const [openModal, setOpenModal] = useState<any>(false)
-  const { addProductToCart } = useContext(GlobalContext)
+  const { addProductToCart, showPopup } = useContext(GlobalContext)
 
   const handleOpenModal = () => {
     setOpenModal(!openModal)
@@ -124,6 +125,7 @@ export const ProductPage = () => {
       {
         product ?
           (<>
+            <Popup message="Produto adicionado ao carrinho" show={showPopup} />
             <div className="container container-product__page">
               <div className="content-product__page">
                 <div className="leftside-product__page" ref={refferenceImage} >

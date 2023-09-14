@@ -306,7 +306,7 @@
     flex-shrink: 0;
 
     .title {
-      margin-top: 240px;
+      margin-top: 200px;
       padding-bottom: 24px;
 
       h1 {
@@ -367,6 +367,17 @@
 @media screen and (max-width: 680px) {
   .left-side__content img {
     max-height: 400px;
+  }
+
+  .container-info__products {
+
+    
+    .left-side,
+    .right-side {
+      .title {
+        margin-top: 200px;
+      }
+    }
   }
 }
 
