@@ -4,6 +4,7 @@ import { Footer } from '../Footer';
 import { GlobalContext } from '../context/GlobalContext';
 import { ProductInput } from './ProductInput';
 import './styles.css';
+import { useNavigate } from 'react-router-dom';
 
 import { useContext, useState } from 'react';
 
@@ -20,12 +21,15 @@ export const InputSearch = () => {
   
   const filteredProducts = products.filter((item) => item[0].toLocaleLowerCase().includes(data.toLocaleLowerCase()))
 
+  
+const history = useNavigate();
+
 
   return (
     <>
         <div className="container-input__search container">
           <Link to="/">
-            <h1>← Voltar para Home</h1>
+            <h1 onClick={ () => history(-1)}>← Voltar para Home</h1>
           </Link>
           <div className="content-input__seach">
             <form>
