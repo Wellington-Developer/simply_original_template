@@ -6,12 +6,15 @@
   cursor: pointer;
 }
 .container-whatsapp .content-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #34af23;
-  padding: 18px;
   border-radius: 100%;
+  width: 60px;
+  height: 60px;
 }
 .container-whatsapp .content-whatsapp svg {
-  padding-top: 2px;
   width: 24px;
   height: 24px;
   color: white;

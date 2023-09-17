@@ -44,7 +44,7 @@ export const InfoClient = () => {
       <div className="step-one__client">
         <div className="box-shadow">
           <h1>Deixe-nos te conhecer melhor</h1>
-          <p>Como você me garante não ser o batman?</p>
+          <p>Insira seu nome e Whatsapp</p>
           <FormStepOne />
           <div className="button">
             <div onClick={ handlePrevStep }>
@@ -59,7 +59,7 @@ export const InfoClient = () => {
 
       <div className="step-two__client">
         <div className="box-shadow">
-          <h1>COOOOORREEEIOS.</h1>
+          <h1>Envio</h1>
           <p>Onde podemos entregar sua mercadoria?</p>
           <FormStepTwo />
           <div className="button">

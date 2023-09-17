@@ -62,11 +62,14 @@ export const ProductPage = () => {
   }
 
   const handleScrollLeft = () => {
-    refWidth.current.scrollLeft -= refWidth.current.offsetWidth;
-  }
+    const evaluationSection = document.getElementById('avaliacao');
+    evaluationSection.scrollIntoView({ behavior: 'smooth' });
+  };
+  
   const handleScrollRight = () => {
-    refWidth.current.scrollLeft += refWidth.current.offsetWidth;
-  }
+    const descriptionSection = document.getElementById('info-desc');
+    descriptionSection.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const handlePlusProductCart = () => {
     let productHandled = contProduct
@@ -169,7 +172,7 @@ export const ProductPage = () => {
                     <div className="description-product__page">
                       <p>{product.description}</p>
 
-                      <a href="#info-desc">Ver mais</a>
+                      <a onClick={handleScrollRight}>Ver mais</a>
                     </div>
                   </div>
 
@@ -247,14 +250,14 @@ export const ProductPage = () => {
                 <div className="left-side" id="info-desc">
                   <div className="title" >
                     <h1>Descrição</h1>
-                    <p onClick={handleScrollRight}>Ver avaliações</p>
+                    <p onClick={handleScrollLeft}>Ver avaliações</p>
                   </div>
                   <h3>{product.description}</h3>
                 </div>
                 <div className="right-side" id="avaliacao">
                   <div className="title">
                     <h1>Avaliações</h1>
-                    <p onClick={handleScrollLeft}>Ver descrição</p>
+                    <p onClick={handleScrollRight}>Ver descrição</p>
                   </div>
                   <div>
                     <h3>Ainda não há nenhuma avaliação</h3>

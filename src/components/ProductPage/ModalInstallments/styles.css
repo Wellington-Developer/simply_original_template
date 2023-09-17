@@ -1,7 +1,7 @@
 .container-modal__installments {
   position: fixed;
   width: 100%;
-  top: 0;
+  top: 200px;
   left: 0;
   right: 0;
   border: 1px solid var(--black-color-o2);
