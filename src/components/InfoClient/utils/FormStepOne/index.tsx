@@ -6,6 +6,7 @@ export const FormStepOne = () => {
   const [dataInfoClient, setDataInfoClient] = useState<any>({});
 
   useEffect(() => {
+    console.log(dataInfoClient)
     // Update the dataInfoClient whenever nameClient or whatsappClient changes
     setDataInfoClient({ nome: nameClient, whatsapp: whatsappClient });
   }, [nameClient, whatsappClient]);
