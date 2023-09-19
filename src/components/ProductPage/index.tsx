@@ -239,7 +239,7 @@ export const ProductPage = () => {
                       <button onClick={() => addProductToCart(product.id, product.title, contProduct, size, color, product.price)}>
                         <img src={Cart} alt="cart" />
                         Adicionar</button>
-                      <button id="button-wpp"><AiOutlineWhatsApp />Compra rápida pelo whatsapp</button>
+                      <button id="button-wpp"><a href={`https://wa.me//556281470582?text=Olá, desejo comprar o produto: ${product.title}.%0d%0aQuantidade: ${contProduct}.%0d%0aCor: ${color}%0d%0aTamanho: ${size}%0d%0aPreço Total: ${formatNumber.format(product.price * contProduct)}`}><AiOutlineWhatsApp />Compra rápida pelo whatsapp</a></button>
                     </div>
                   </div>
                 </div>

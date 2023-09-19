@@ -1,6 +1,7 @@
 // Styles
 import { useEffect, useState } from 'react';
 import './styles.css';
+import { AiOutlineClose } from 'react-icons/ai'
 
 export const ModalInstallments = ({ price, handleOpen }) => {
   const options = { style: 'currency', currency: 'BRL' }
@@ -20,7 +21,7 @@ export const ModalInstallments = ({ price, handleOpen }) => {
 
   return (
     <div className="container-modal__installments" >
-      <h3 onClick={() => handleOpen(false)}>Fechar modal</h3>
+      <h3 onClick={() => handleOpen(false)}><AiOutlineClose /></h3>
       {
         parcelas && parcelas.map((item, index) => {
           return <div className="line-parcela" key={index}>

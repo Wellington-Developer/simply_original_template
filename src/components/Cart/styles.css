@@ -13,10 +13,16 @@
 .container-section__cart .product-discount__cart {
   position: absolute;
   width: 100%;
-  height: 80%;
-  border-radius: 5px;
-  background: white;
-  z-index: 999;
+  height: 200px;
+  left: 0;
+  right: 0;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999;
+}
+.container-section__cart .product-discount__cart .discount-cumpom {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,7 +31,8 @@
 .container-section__cart .product-discount__cart button {
   padding: 12px 24px;
   border: none;
-  background: var(--black-color-o2);
+  background: var(--primary-color-o5);
+  color: var(--black-color-o1);
   border-radius: 5px;
   font-size: 1rem;
   font-weight: 500;
@@ -37,7 +44,8 @@
 .container-section__cart .product-discount__cart input {
   max-width: 500px;
 }
-.container-section__cart .left-side__cart, .container-section__cart .right-side__cart {
+.container-section__cart .left-side__cart,
+.container-section__cart .right-side__cart {
   width: 100%;
   padding: 30px 0;
 }
@@ -75,13 +83,15 @@
   width: 100%;
   justify-content: space-between;
   margin-bottom: 0px;
+  position: relative;
 }
 .container-section__cart .right-side__cart .quicly-resume__cart .resume-cart {
   width: 100%;
   display: flex;
   margin-top: 32px;
 }
-.container-section__cart .right-side__cart .quicly-resume__cart .resume-cart h1, .container-section__cart .right-side__cart .quicly-resume__cart .resume-cart a {
+.container-section__cart .right-side__cart .quicly-resume__cart .resume-cart h1,
+.container-section__cart .right-side__cart .quicly-resume__cart .resume-cart a {
   flex: 1;
   text-align: center;
 }
@@ -130,7 +140,6 @@
 }
 .until-cart .mid-until__cart {
   width: 100%;
-  border: 1px solid red;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);

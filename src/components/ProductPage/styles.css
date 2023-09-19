@@ -213,6 +213,12 @@
   max-width: 24px;
   max-height: 24px;
 }
+.container-product__page .content-product__page .rightside-product__page .buttonbuy-product__page button a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
 .container-product__page .content-product__page .rightside-product__page .buttonbuy-product__page button {
   width: 100%;
   padding: 12px;

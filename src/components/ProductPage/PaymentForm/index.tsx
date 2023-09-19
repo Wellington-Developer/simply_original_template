@@ -9,7 +9,7 @@ export const PaymentForm = ({ price }) => {
   const options = { style: 'currency', currency: 'BRL' }
   const formatNumber = new Intl.NumberFormat('pt-BR', options)
   const [indexForm, setIndexForm] = useState(0)
-  const { handleResumeProduct } = useContext(GlobalContext)
+  const { handleResumeProduct, getPriceCart } = useContext(GlobalContext)
 
   const parcelaQtd = [
     { id: 1, name: 2 },
@@ -64,7 +64,8 @@ export const PaymentForm = ({ price }) => {
 
   useEffect(() => {
     handleParcela()
-  }, [parcela])
+    getPriceCart(paymentForm[indexForm].price)
+  }, [parcela, paymentForm])
 
   return (
     <div className="box-payment__form">

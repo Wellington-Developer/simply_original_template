@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router-dom';
 
 export const Cart = () => {
   const userAtive = localStorage.getItem("user-active");
-  const { cart, resumeProduct } = useContext(GlobalContext);
+  const { cart, resumeProduct, priceCart } = useContext(GlobalContext);
   let soma = 0;
   const [productPrice, setProductPrice] = useState(0)
   const [discount, setDiscount] = useState();
@@ -99,22 +99,10 @@ export const Cart = () => {
       {
         cart.length > 0 ? (<div className="container">
         <Link to="/">
-          <span className="home">← Voltar para home</span>
+          <span className="home">← Voltar</span>
         </Link>
       {userAtive ? (
         <div className="container-section__cart">
-          {
-            modalCupom && <div className="product-discount__cart">
-            
-            <input
-              type="text"
-              placeholder="Cupom de desconto"
-              onChange={ handleChangeDiscount }
-            />
-
-            <button onClick={ () => setModalCupom(false) }>Confirmar</button>
-          </div>
-          }
           
         <div className="left-side__cart">
         {
@@ -148,6 +136,21 @@ export const Cart = () => {
               !hasDiscount && <p onClick={ () => setModalCupom(true) }>Inserir cupom de desconto</p>
             }
 
+          {
+            modalCupom && <div className="product-discount__cart">
+            <div className="discount-cumpom">
+              
+              <input
+                type="text"
+                placeholder="Cupom de desconto"
+                onChange={ handleChangeDiscount }
+              />
+
+              <button onClick={ () => setModalCupom(false) }>Confirmar</button>
+            </div>
+          </div>
+          }
+
             {
               hasDiscount !== 0 && <>
                 <p>Desconto aplicado:</p>
@@ -167,7 +170,7 @@ export const Cart = () => {
                 
                 {
                   resumeProduct &&
-                    <h1>{formatNumber.format(resumeProduct.price - hasDiscount)}</h1>
+                    <h1>{formatNumber.format(priceCart)}</h1>
                 }
               </div>)
             }
@@ -182,7 +185,7 @@ export const Cart = () => {
         (
           <div className="until-cart">
             <div className="mid-until__cart">
-                <p onClick={backToOtherRoute}>← Voltar para pagina anterior</p>
+                <p onClick={backToOtherRoute}>← Voltar</p>
 
                 <div className="info-until__cart">
                   <h1>Seu carrinho está vazio 🥺</h1>

@@ -29,7 +29,7 @@ const history = useNavigate();
     <>
         <div className="container-input__search container">
           <Link to="/">
-            <h1 onClick={ () => history(-1)}>← Voltar para Home</h1>
+            <h1 onClick={ () => history(-1)}>← Voltar</h1>
           </Link>
           <div className="content-input__seach">
             <form>
