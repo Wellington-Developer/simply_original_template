@@ -8,9 +8,11 @@ import { ButtonNext } from './utils/ButtonNext';
 import { useRef } from 'react';
 import { FormStepOne } from './utils/FormStepOne';
 import { FormStepTwo } from './utils/FormStepTwo';
+import { useNavigate } from 'react-router-dom';
 
 export const InfoClient = () => {
   const refferenceScreen = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate()
 
   const handleNextStep = () => {
     if(refferenceScreen.current != null) {
@@ -26,6 +28,7 @@ export const InfoClient = () => {
 
   const handleLocalStorageUserActive = () => {
     localStorage.setItem("user-active", "ativo")
+    navigate('/')
     window.location.reload()
   }
 
