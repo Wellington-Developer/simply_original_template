@@ -10,6 +10,11 @@
   background-color: white;
   position: relative;
 }
+.container-section__cart #edit-data {
+  padding-bottom: 14px;
+  font-size: 1rem;
+  cursor: pointer;
+}
 .container-section__cart .product-discount__cart {
   position: absolute;
   width: 100%;

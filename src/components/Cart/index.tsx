@@ -89,6 +89,11 @@ export const Cart = () => {
     setDataClient(JSON.parse(data))
   }
 
+  const handleEditData = () => {
+    localStorage.removeItem('user-active');
+    history("/cart")
+  }
+
   useEffect(() => {
     sumProductCart()
     getInfoLocalStorage()
@@ -108,6 +113,9 @@ export const Cart = () => {
         {
           dataClient &&
           <>
+          <div className="adress">
+          </div>
+          <h5 id="edit-data" onClick={ handleEditData }>Editar dados</h5>
           <p>Estamos quase lá, {dataClient.nome}</p>  
           <h4>Me diga, como quer pagar?</h4>
           </>
