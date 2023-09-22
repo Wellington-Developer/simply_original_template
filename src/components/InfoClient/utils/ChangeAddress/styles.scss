@@ -1,0 +1,47 @@
+.info-change__addr {
+  display: flex;
+  max-width: 1154px;
+  margin: 0 auto;
+  gap: 24px;
+  padding: 20px;
+
+  .info {
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--black-color-o6);
+      padding-bottom: 12px;
+    }
+  }
+
+  label {
+    color: var(--black-color-o5);
+
+
+    input {
+      margin-bottom: 24px;
+    }
+  }
+
+  button {
+    padding: 12px 24px;
+    background: var(--primary-color-o2);
+    color: var(--primary-color-o5);
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+  }
+
+  button:hover {
+    color: var(--primary-color-o1);
+    background: var(--primary-color-o5);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .info-change__addr {
+    flex-wrap: wrap;
+  }
+}

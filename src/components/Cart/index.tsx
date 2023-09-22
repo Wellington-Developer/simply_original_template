@@ -27,9 +27,15 @@ export const Cart = () => {
   const formatNumber = new Intl.NumberFormat('pt-BR', options)
   const [ modalCupom, setModalCupom ] = useState(false)
   const history = useNavigate();
+  const [ address, setAdress ] = useState<any>()
 
   const backToOtherRoute = () => {
     history(-1);
+  }
+
+  const getClientAddress = () => {
+    const addr = localStorage.getItem("fullAddressClient")
+    setAdress(JSON.parse(addr))
   }
 
   const sumProductCart = () => {
@@ -90,14 +96,17 @@ export const Cart = () => {
   }
 
   const handleEditData = () => {
-    localStorage.removeItem('user-active');
-    history("/cart")
+    history("/change-address")
   }
 
   useEffect(() => {
     sumProductCart()
     getInfoLocalStorage()
   }, [cart])
+
+  useEffect(() => {
+    getClientAddress()
+  }, [])
 
   return (
     <>
@@ -113,9 +122,16 @@ export const Cart = () => {
         {
           dataClient &&
           <>
-          <div className="adress">
+          <div className="add">
+          {
+            address &&
+            <div className="adress">
+                <h3>Endereço:</h3>
+                <p>{address.street} - {address.cep}, número {address.number}, {address.city}</p>
+            </div>
+          }
+          <h5 id="edit-data" onClick={ handleEditData }>Editar endereço</h5>
           </div>
-          <h5 id="edit-data" onClick={ handleEditData }>Editar dados</h5>
           <p>Estamos quase lá, {dataClient.nome}</p>  
           <h4>Me diga, como quer pagar?</h4>
           </>

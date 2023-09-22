@@ -198,7 +198,7 @@ export const ProductPage = () => {
                       </div>
                       <div className="item-frete">
                         <img src={PaymentPix} alt="frete.description" />
-                        <h1>10% de desconto ({formatNumber.format(product.price - (10 * product.price / 100))}) no pix!</h1>
+                        <h1>10% de desconto ({formatNumber.format(product.price - (10 * product.price / 100) - 5)}) no pix!</h1>
                       </div>
                     </div>
 

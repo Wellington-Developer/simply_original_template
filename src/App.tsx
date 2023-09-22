@@ -21,6 +21,7 @@ import { Cart } from './components/Cart';
 import { SearchPage } from './components/SearchPage';
 import { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css'
+import { ChangeAddress } from './components/InfoClient/utils/ChangeAddress';
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
                 <Route path="/category/:id" element={ <CategoryProduct /> } />
                 <Route path="/product/:id" element={ <ProductPage /> } />
                 <Route path="/termos" element={ <Termos /> } />
+                <Route path="/change-address" element={<ChangeAddress />} />
                 <Route path="/politica-privacidade" element={ <PoliticaPrivacidade /> } />
                 <Route path="/cadastrar-produto" element={ <AddNewProduct /> } />
               </Routes>

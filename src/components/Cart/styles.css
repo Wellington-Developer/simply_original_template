@@ -13,7 +13,24 @@
 .container-section__cart #edit-data {
   padding-bottom: 14px;
   font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
+}
+.container-section__cart .add {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.container-section__cart .add .adress {
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  background: var(--black-color-o1);
+}
+.container-section__cart .add .adress h3 {
+  padding-bottom: 4px;
 }
 .container-section__cart .product-discount__cart {
   position: absolute;

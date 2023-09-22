@@ -13,7 +13,27 @@
   #edit-data {
     padding-bottom: 14px;
     font-size: 1rem;
+    font-weight: 500;
     cursor: pointer;
+  }
+  
+  .add {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+
+    .adress {
+      width: 100%;
+      h3 {
+        padding-bottom: 4px;
+      }
+  
+      padding: 12px;
+      border-radius: 5px;
+      background: var(--black-color-o1);
+    }
   }
 
   .product-discount__cart {
