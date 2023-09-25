@@ -249,3 +249,9 @@
     }
   }
 }
+
+@media screen and (max-width: 600px) {
+  .container-section__cart {
+    padding-top: 24px;
+  }
+}

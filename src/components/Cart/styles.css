@@ -202,4 +202,9 @@
   .container-section__cart .right-side__cart .quicly-resume__cart .resume-cart {
     flex-direction: column;
   }
+}
+@media screen and (max-width: 600px) {
+  .container-section__cart {
+    padding-top: 24px;
+  }
 }/*# sourceMappingURL=styles.css.map */

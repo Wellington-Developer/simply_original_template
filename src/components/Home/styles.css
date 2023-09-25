@@ -1,3 +1,9 @@
 .container-home {
   margin-top: 200px;
+}
+
+@media screen and (max-width: 600px) {
+  .container-home {
+    margin-top: 80px;
+  }
 }/*# sourceMappingURL=styles.css.map */

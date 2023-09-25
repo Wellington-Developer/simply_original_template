@@ -72,4 +72,26 @@
   to {
     opacity: 1;
   }
+}
+
+@media screen and (max-width: 600px) {
+  .menu {
+    position: fixed;
+    top: -800px;
+    left: -3px;
+    bottom: 0;
+    height: 120vh;
+    width: 400px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding-top: 100px;
+    transform: translateX(-100%);
+    will-change: transform;
+    z-index: 998;
+    transition: all 0.2s ease-in;
+  }
 }/*# sourceMappingURL=styles.css.map */
