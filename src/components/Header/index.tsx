@@ -72,18 +72,39 @@ export const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [ inputIsOpen, setInputIsOpen ] = useState(false);
     const { cart } = useContext(GlobalContext);
-
+    const [ scrolled, setScrolled ] = useState<any>(false)
 
     const scope = useMenuAnimation(isOpen);
+
+    const headerStyle = {
+      height: scrolled ? '70px' : '100px',
+      transition: 'height 0.3s ease'
+    };
+  
 
     const handleInputIsOpen = () => {
       setInputIsOpen(!inputIsOpen);
     }
 
+    useEffect(() => {
+      const handleScroll = () => {
+        // Verifica se a página foi rolada para baixo (scroll > 50px)
+        const isScrolled = window.scrollY > 50;
+        setScrolled(isScrolled);
+      };
+  
+      // Adiciona o evento de rolagem
+      window.addEventListener('scroll', handleScroll);
+  
+      // Remove o evento de rolagem ao desmontar o componente
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, [])
     return (
         <>
         <CallToActionTop />
-          <div className="principal-container__header">
+          <div className={`principal-container__header ${scrolled ? 'top-zero' : ''}`} style={headerStyle}>
             <div className="left-side__header">
                 <div ref={scope}>
                     {

@@ -8,12 +8,7 @@
   top: 40px;
   right: 0;
   left: 0;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: white;
   z-index: 999999999;
 }
 .principal-container__header .left-side__header,
@@ -36,14 +31,7 @@
   justify-content: center;
   height: 80px;
   max-width: 600px;
-}
-.principal-container__header .mid-side__header input {
-  align-self: center;
-  display: block;
-  width: 100%;
-  border-bottom: 0;
-  border: 1px solid black;
-  margin-top: 18px;
+  padding-top: 4px;
 }
 .principal-container__header .mid-side__header .name_interprise {
   margin: 0 auto;
@@ -68,7 +56,7 @@
   border: none;
   cursor: pointer;
   position: absolute;
-  top: 50px;
+  top: 35px;
   right: 15px;
   gap: 12px;
   padding: 10px;
@@ -106,13 +94,97 @@
   color: white;
 }
 
+.top-zero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  right: 0;
+  left: 0;
+  background: white;
+  z-index: 999999999;
+}
+.top-zero .mid-side__header {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  padding-top: 8px;
+}
+.top-zero .mid-side__header .name_interprise {
+  margin: 0 auto;
+  background: var(--black-color-o2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--black-color-o6);
+}
+.top-zero .right-icon__header {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  gap: 12px;
+  padding: 10px;
+  z-index: 999;
+  background: transparent;
+  display: flex;
+  gap: 12px;
+}
+.top-zero .right-icon__header img {
+  max-width: 24px;
+  max-height: 24px;
+}
+.top-zero .right-icon__header a svg {
+  max-width: 24px;
+  max-height: 24px;
+  transition: all 0.3s ease-in-out;
+  color: var(--black-color-o6);
+}
+.top-zero .right-icon__header svg:hover {
+  color: var(--primary-color-o5);
+}
+.top-zero .right-icon__header .contador {
+  position: relative;
+  top: -6px;
+  right: 22px;
+  height: 16px;
+  width: 16px;
+  border-radius: 100%;
+  font-size: 12px;
+  display: flex;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-color-o5);
+  color: white;
+}
+
 @media screen and (max-width: 800px) {
   .principal-container__header .right-icon__header {
     right: -15px;
   }
 }
 @media screen and (max-width: 600px) {
-  .principal-container__header {
+  .principal-container__header .mid-side__header {
+    position: fixed;
+    top: 60px;
+  }
+  .principal-container__header .mid-side__header .name_interprise {
+    font-size: 0.8rem;
+    height: 60px;
+    width: 60px;
+  }
+  .top-zero {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -122,15 +194,15 @@
     top: auto;
     width: 100%;
   }
-  .principal-container__header .left-side__header, .principal-container__header .right-icon__header {
+  .top-zero .left-side__header, .top-zero .right-icon__header {
     align-self: center;
   }
-  .principal-container__header .right-icon__header {
+  .top-zero .right-icon__header {
     outline: none;
     border: none;
     cursor: pointer;
     position: absolute;
-    top: 10px;
+    top: 14px;
     right: 0px;
     gap: 12px;
     padding: 10px;
@@ -139,20 +211,20 @@
     display: flex;
     gap: 12px;
   }
-  .principal-container__header .right-icon__header img {
+  .top-zero .right-icon__header img {
     max-width: 24px;
     max-height: 24px;
   }
-  .principal-container__header .right-icon__header a svg {
+  .top-zero .right-icon__header a svg {
     max-width: 24px;
     max-height: 24px;
     transition: all 0.3s ease-in-out;
     color: var(--black-color-o6);
   }
-  .principal-container__header .right-icon__header svg:hover {
+  .top-zero .right-icon__header svg:hover {
     color: var(--primary-color-o5);
   }
-  .principal-container__header .right-icon__header .contador {
+  .top-zero .right-icon__header .contador {
     position: relative;
     top: -6px;
     right: 22px;
@@ -167,7 +239,7 @@
     background: var(--primary-color-o5);
     color: white;
   }
-  .principal-container__header .mid-side__header {
+  .top-zero .mid-side__header {
     display: none;
   }
 }/*# sourceMappingURL=styles.css.map */
