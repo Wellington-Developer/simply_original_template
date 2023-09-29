@@ -34,6 +34,7 @@
   padding-top: 4px;
 }
 .principal-container__header .mid-side__header .name_interprise {
+  border-radius: 100%;
   margin: 0 auto;
   background: var(--black-color-o2);
   display: flex;
@@ -45,6 +46,9 @@
   text-align: center;
   font-size: 1.25rem;
   color: var(--black-color-o6);
+}
+.principal-container__header .mid-side__header .name_interprise img {
+  border-radius: 100%;
 }
 .principal-container__header .right-side__header {
   display: flex;
@@ -180,6 +184,7 @@
     top: 60px;
   }
   .principal-container__header .mid-side__header .name_interprise {
+    border-radius: 100%;
     font-size: 0.8rem;
     height: 60px;
     width: 60px;

@@ -39,6 +39,10 @@
         max-width: 600px;
         padding-top: 4px;
         .name_interprise {
+            img {
+                border-radius: 100%;
+            }
+            border-radius: 100%;
             margin: 0 auto;
             background: var(--black-color-o2);
             display: flex;
@@ -204,6 +208,7 @@
             top: 60px;
 
             .name_interprise {
+                border-radius: 100%;
                 font-size: 0.8rem;
                 height: 60px;
                 width: 60px;

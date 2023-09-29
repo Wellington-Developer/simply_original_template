@@ -4,6 +4,7 @@ import './styles.css';
 
 // React Hooks
 import { useState, useContext } from 'react';
+import { Link } from 'react-router-dom'
 
 export const PopupTermsAccept = () => {
   const [ inputData, setInputData ] = useState('');
@@ -17,14 +18,14 @@ export const PopupTermsAccept = () => {
   }
 
   return (
-    <>
+    <div className="container">
       {modal && <div className={termsUserHasBeenAccepted != null ? 'fechar' : ''}>
       <div className="section-popup">
-        <h1>Usamos cookies para personalizar conteúdos e melhorar a sua experiência. Ao navegar neste site, você concorda com nossa política de privacidade.</h1>
-        <button onClick={ handleLocalStorageSendMessage }>Aceitar e Fechar</button>
+        <h1>Usamos cookies para personalizar conteúdos e melhorar a sua experiência. Ao navegar neste site, você concorda com nossa <Link to="/politica-privacidade">política de privacidade</Link>.</h1>
+        <button onClick={ handleLocalStorageSendMessage }>Aceitar</button>
       </div>
     </div>}
-    </>
+    </div>
 
   )
 }

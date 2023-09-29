@@ -22,6 +22,8 @@ import { InputSearch } from '../InputSerch';
 import { GlobalContext } from '../context/GlobalContext';
 import { CallToActionTop } from './utils/CallToActionTop';
 
+import LogoHeaderImg from '../../assets/logo-header.png';
+
 
 function useMenuAnimation(isOpen: boolean) {
     const [scope, animate] = useAnimate();
@@ -124,7 +126,9 @@ export const Header = () => {
                     inputIsOpen && <InputSearch />
                   }
                   {
-                    !inputIsOpen && <h1 className="name_interprise">Simply</h1>
+                    !inputIsOpen && <h1 className="name_interprise">
+                      <img src={LogoHeaderImg} />
+                    </h1>
                   }
                 </Link>
                 </motion.div>
