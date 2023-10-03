@@ -137,9 +137,11 @@ export const Header = () => {
               <div className="right-icon__header">
                 <Link to="/search">
                   <BiSearchAlt2 onClick={ handleInputIsOpen } />
+                  <p className="info-product__descr">Pesquisar</p>
                 </Link>
                 <Link to="/cart">
                   <img src={ CartHeader } />
+                  <p className="info-product__descr">Carrinho</p>
                 </Link>
                 <Link to="/cart">
                   <div className="contador">

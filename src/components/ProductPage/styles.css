@@ -104,6 +104,7 @@
   max-width: 350px;
 }
 .container-product__page .content-product__page .rightside-product__page .info-product__page .description-product__page a {
+  cursor: pointer;
   color: black;
   font-weight: 500;
   font-size: 0.8rem;

@@ -45,8 +45,8 @@ export const Product = ({ title, price, image, id }: IProduct) => {
           <div className="info-single__product">
             <p>{title}</p>
             <div className="price">
-              <h1>{formatNumber.format(price)}</h1>
-              <span>{formatNumber.format(price - 5)}</span>
+              <h1>{formatNumber.format(price - 5)}</h1>
+              <span>{formatNumber.format(price)}</span>
             </div>
           </div>
           <div className="button-single__product" >

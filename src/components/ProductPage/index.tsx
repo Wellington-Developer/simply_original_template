@@ -78,7 +78,11 @@ export const ProductPage = () => {
 
   const handleMinusProductCart = () => {
     let productHandled = contProduct
-    setContProduct(--productHandled)
+    if(productHandled <= 1) {
+      productHandled = 1
+    } else {
+      setContProduct(--productHandled)
+    }
   }
   const fetchProduct = () => {
     fetch(`https://fakestoreapi.com/products/${param.id}`)
@@ -172,7 +176,7 @@ export const ProductPage = () => {
                     <div className="description-product__page">
                       <p>{product.description}</p>
 
-                      <a onClick={handleScrollRight}>Ver mais</a>
+                      <a onClick={handleScrollRight}>Ver informações do produto</a>
                     </div>
                   </div>
 
